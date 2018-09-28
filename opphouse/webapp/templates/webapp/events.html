@@ -5,4 +5,11 @@
 
 
 {%block pagecontent%}
+
+
+{% for e in events %}
+	<h3>{{e.eventname}}</h3>
+{% endfor %}
+
+
 {%endblock pagecontent%}

@@ -37,7 +37,6 @@ schedule todolist
         integrate into s
         handlers to make sql objects interoperable
 
-    git-ify
     better bug reporting
 
 
@@ -81,49 +80,69 @@ docs - video?
 end goal:
     all necessary pages
     RECREATE FIRST, then add fancy
-    connect fancy lights maybe (https://www.youtube.com/watch?v=5zhReMb_Yek&pbjreload=10)
-    facebook app (https://www.youtube.com/watch?v=jxDHNSW28bs&index=10&list=PL7Nf-MXzozDLSk9nLsAkosV9h3C4eBXgn)
-        https://developers.facebook.com/docs/marketing-apisre
+    figure out how to pattern non-img'd events
+    
     SEO hacking
         twitter good for SEO https://www.youtube.com/watch?v=T3GsJgxAB9Q&list=PL7Nf-MXzozDLSk9nLsAkosV9h3C4eBXgn&index=13
     TinyMCE for wsyiwyg page editor (https://www.youtube.com/watch?v=bJeTEDRvGVA&list=PL7Nf-MXzozDLSk9nLsAkosV9h3C4eBXgn&index=4)
-    use OpenStreetMap for planning route? or google credits if low volume 
+    
     editable container for info under pic on mainpage (commented-out Statefarm bit )
+        checkbox for whether or not is shown
     sitemap (https://www.youtube.com/watch?v=xAXMqiPSY34)
     captcha contact
     retina (js or otherwise)
     basic slide animations (jq or greensock)
-    user-editable translations thru admin 
-        has different ways of showing if text is already translated manually, if not will be google translated (don't want to have to query it each time - saved in other file?)
+    user-editable translations thru admin - ES, maybe ZH
+        "Translator" group connected to specific language - ISO639-1 code included
+        has different ways of showing if text is already translated manually
+            if not will be google translated (don't want to have to query it each time - saved in other file?)
+                https://cloud.google.com/translate/docs/translating-text#translate_translate_text-protocol
+
+   
     get royalty-free page rip if possible
     clickable asterisk scrolls down to page info
     editable sponsors - scrollbar?
         "WebEditor"(or similar) Group can edit sponsors & events
         paypal linked to adding to sponsor in some form?
+
     format notes
-        parallax in pictures
+        parallax in mainpictures
         drop shadow from header
+
     pickup scheduling form 
-        sends info to android app db somehow (REST sending to GCM- w authentification: https://techstricks.com/api-authentication-django-and-android-apps/)
+        sends info to android app db 
+            (REST sending to GCM- w authentification: https://techstricks.com/api-authentication-django-and-android-apps/)
         employees in group "Pickup" can change pickup data & call api
-        Donor Info:
-            Name
-            Address
-            Phone
-            Email
-            IP
-            
-        Item Info:
-            Uploadable images
-            Stop type
+       
     active sales 
-    events addable via some sorta put json req - jinja?
-        add event page
+
     Marketplace (https://www.youtube.com/watch?v=9Wbfk16jEOk)
         connected to fb &/ ebay
+            facebook app - out of date? (https://www.youtube.com/watch?v=jxDHNSW28bs&index=10&list=PL7Nf-MXzozDLSk9nLsAkosV9h3C4eBXgn)
+        https://developers.facebook.com/docs/marketing-apisre
     "Is Dock Open" badge
         auto open/closed based on hours,have some way (floor app?) to send closing signal
     map w all marked pts - maybe not since gmaps is dumb now?
+        figure out details abt cloud pricing/nonprofit api discounts
+        use OpenStreetMap for planning fastest route? or google credits if low volume 
+
+    more in-depth social media integration
+   
+
+    Use Model Forms!!! - crispy too?
+    DB backup manager (fixtures?)
+
+    Way down the line goals:
+        eventually make better video than that movie maker shit
+        connect fancy lights maybe (https://www.youtube.com/watch?v=5zhReMb_Yek&pbjreload=10)
+    
+done:
+    git-ify'd :) 
+todo:
+    media folders
+    event reads from db
+    
+data structures:
     Event Data Structure:
         Title
         Description (w headers etc)
@@ -133,27 +152,27 @@ end goal:
         URL
     WFH Data Structure:
         Car Info:
+            [Donor]
+              is car located at donor address [if not, additional field]
             Year/Make/Model
             Mileage
             Does it Run?
             Have The Title?
             VIN
-        Donor Info:
-            reg+is car located[if not, additional field]
-        How Did You Hear About Us
-    more in-depth social media integration
-    translate to spanish
+            How Did You Hear About Us
+     Donor Structure:
+            Name
+            Address
+            Phone
+            Email
+            IP
+            
+    Pickup Item Info:
+        [Donor]
+        Item Descriptions
+        Uploadable images
+        Stop type
 
-    Use Model Forms!!! - crispy too?
-    DB backup manager (fixtures?)
-    eventually make better video than that movie maker shit
-    
-done:
-    
-todo:
-    media folders
-    event reads from db
-    
 """
 namedict={'James Ward':{'phone':'$thrift_phone','email':'jamesw@opportunityhouse.us','role':'pickup'},
           'Sunny Tyler':{'email':'sunnyt@opportunityhouse.us'}}

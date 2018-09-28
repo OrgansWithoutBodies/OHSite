@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.template import RequestContext
-
+from .models import *
 #render_to_response can include  context_instance=RequestContext(request) for session tracking i think?
 objs=[{'str':'testing','test':'ing'},
 {'str':'tested','othkey':'test'}]
@@ -16,9 +16,9 @@ def home(request):
 
 
 def events(request):
-	
+	evlist=Event.objects.all()
 	context={
-		'events':events
+		'events':evlist
 	}
 	return render(request,"webapp/events.html",context)
 

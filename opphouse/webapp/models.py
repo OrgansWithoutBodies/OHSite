@@ -40,8 +40,8 @@ class Event(models.Model):#attachable associated documents?
 	startdate	=models.DateTimeField()
 	enddate		=models.DateTimeField(help_text="Must be same or after startdate")#verify that is after startdate
 
-	price		=models.SmallIntegerField()
-	img 		=models.ImageField()
+	price		=models.SmallIntegerField(default=0)
+	img 		=models.ImageField(blank=True)
 	loc			=models.TextField()
 
 	def __str__(self):
@@ -67,4 +67,13 @@ class Pickup(models.Model):
 
 	specinstruct=models.TextField(blank=True)
 	imgs		=models.ImageField(blank=True)
+
+# class Sale(models.Model):
+
+# 	salecats 	=models.TextField(max_length=50)
+# 	saleamt		=models.TextField(max_length=50)#make into flexible types? (x% off, $y off, buy z get $q etc etc etc - match epos?)
+
+# 	saledesc	=models.CharField(max_length=100) #shows in different page or smth? 
+# 	salestart	=models.DateTimeField()
+# 	saleend		=models.DateTimeField()
 
