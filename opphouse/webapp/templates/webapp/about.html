@@ -1,0 +1,15 @@
+{% extends "webapp/base.html" %}
+
+{%block title%}
+test
+{%endblock title%}
+
+
+{%block pagecontent%}
+	<h5>{{title}}</h5>
+	<button onclick="window.location.href='contact/'">Go To Contact</button>
+	{% for event in events %}
+		<h5>{{ event.str }}</h5>
+	{% endfor %}
+
+{%endblock pagecontent%}

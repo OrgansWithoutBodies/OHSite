@@ -1,0 +1,35 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{%static 'webapp/main.css'%}">
+	<link rel="icon" href="{% static 'imgs/opportunity-house-logo-square-icon.png'%}">
+	<title>{%block title%}{%endblock title%}</title>
+</head>
+<body>
+
+	<header>
+		{%block header %}
+
+		<div>
+			<a href='/'>
+				<img src="{%static 'imgs/opportunity-house-logo.png'%}">
+			</a>
+		</div>
+
+		<div>
+			<nav>
+				{%block navbar%}
+				{%endblock navbar%}
+			</nav>
+		</div>
+
+		{% endblock header %}
+	</header>
+
+	{%block pagecontent%}
+	{%endblock pagecontent%}
+
+</body>
+</html>
+
