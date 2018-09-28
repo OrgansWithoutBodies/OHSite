@@ -15,9 +15,9 @@ header_events={
 }
 
 header_volunteer={
-"EN":,
+"EN":"Volunteer",
 
-"ES":
+"ES":"Voluntarse"
 }
 
 header_donate={
@@ -79,7 +79,7 @@ footer_ts={
 "EN":
 "Thrift Store",
 
-"ES":
+"ES":"Tienda de Thrift"
 }
 
 
