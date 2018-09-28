@@ -63,27 +63,33 @@ current site
         bootstrap grid instead of native CSS - even more javascript for basic structure, oldish
             looks weird @ different resolutions
         jquery starting to get old, not a big strike against it tho 
-    
 
-
-
-index
-about
-events
-volunteer
-donate
-thrift
-WfH
-Contact
-docs - video?
+    layout:
+        home
+        about
+            subset of home
+        events
+        view 
+        volunteer
+        donate
+        thrift
+        WfH
+            multi-step form
+        Contact
+        docs - video?
 
 end goal:
     all necessary pages
     RECREATE FIRST, then add fancy
-    figure out how to pattern non-img'd events
-    
+    Apache 
+        https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/modwsgi/ - get to run w django
+    Event stuff
+        figure out how to pattern non-img'd events
+        Photo-Only Event (several container choices?)
+        
     SEO hacking
         twitter good for SEO https://www.youtube.com/watch?v=T3GsJgxAB9Q&list=PL7Nf-MXzozDLSk9nLsAkosV9h3C4eBXgn&index=13
+        slugs help w SEO?
     TinyMCE for wsyiwyg page editor (https://www.youtube.com/watch?v=bJeTEDRvGVA&list=PL7Nf-MXzozDLSk9nLsAkosV9h3C4eBXgn&index=4)
     
     editable container for info under pic on mainpage (commented-out Statefarm bit )
@@ -97,31 +103,33 @@ end goal:
         has different ways of showing if text is already translated manually
             if not will be google translated (don't want to have to query it each time - saved in other file?)
                 https://cloud.google.com/translate/docs/translating-text#translate_translate_text-protocol
-
+    Photo-Only Event (several container choices?)
    
     get royalty-free page rip if possible
     clickable asterisk scrolls down to page info
     editable sponsors - scrollbar?
         "WebEditor"(or similar) Group can edit sponsors & events
         paypal linked to adding to sponsor in some form?
-
+    ~Major Sponsors~
     format notes
         parallax in mainpictures
+            put in base, picture specified by template
         drop shadow from header
 
     pickup scheduling form 
         sends info to android app db 
             (REST sending to GCM- w authentification: https://techstricks.com/api-authentication-django-and-android-apps/)
         employees in group "Pickup" can change pickup data & call api
-       
+   
     active sales 
-
+        make selected sale type affect boxes (generic #1 #2 selected by box?)
     Marketplace (https://www.youtube.com/watch?v=9Wbfk16jEOk)
         connected to fb &/ ebay
             facebook app - out of date? (https://www.youtube.com/watch?v=jxDHNSW28bs&index=10&list=PL7Nf-MXzozDLSk9nLsAkosV9h3C4eBXgn)
         https://developers.facebook.com/docs/marketing-apisre
     "Is Dock Open" badge
-        auto open/closed based on hours,have some way (floor app?) to send closing signal
+        auto open/closed based on hours,have some way (floor app & dock app) to send closing signal outside of regular times
+            careful abt server clock - hide if thinks is before like 2010
     map w all marked pts - maybe not since gmaps is dumb now?
         figure out details abt cloud pricing/nonprofit api discounts
         use OpenStreetMap for planning fastest route? or google credits if low volume 
@@ -138,6 +146,7 @@ end goal:
     
 done:
     git-ify'd :) 
+    
 todo:
     media folders
     event reads from db
