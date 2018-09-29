@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.template import RequestContext
+
+from rest_framework import viewsets
+
 from .models import *
+from .serializers import *
 #render_to_response can include  context_instance=RequestContext(request) for session tracking i think?
 objs=[{'str':'testing','test':'ing'},
 {'str':'tested','othkey':'test'}]
@@ -37,3 +41,13 @@ def wheelsforhope(request):
 def volunteer(request):
 	return render(request,"webapp/volunteer.html")
 
+def truckscheduler(request):
+	pertrip=3
+	trips=1
+	context={'stops':['test']*pertrip*trips}
+	return render(request,"webapp/truckscheduler.html",context)
+
+
+class PickupViewSet(viewsets.ModelViewSet):
+	queryset=Pickup.objects.all()
+	serializer_class = PickupSerializer

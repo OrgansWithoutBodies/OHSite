@@ -1,0 +1,105 @@
+{%extends 'admin/base_site.html'%}
+
+
+
+<!--CSS-->
+{%block extrastyle%}
+<style>
+body{
+}
+.empty{
+	background:#ff0000;
+	display:inline-block;
+	height:150px;
+	width:150px;
+	margin:10px;
+	border:3px;
+	border-style:solid;
+	top:5px;
+	left:5px;
+	border-color: #ffffff;
+}
+.filled{
+	background:#0000ff;
+	position:relative;
+	height:130px;
+	width:130px;
+	margin:10px;
+}
+.hover{
+	border-style:dashed;
+}
+.invisible{
+	display:none;
+}
+</style>
+{%endblock extrastyle%}
+
+
+
+
+
+
+
+
+
+
+
+<!--HTML-->
+{%block content%}
+<!--
+	constructs divs thru recursive list, defined by arguments are passed in from view
+		each div starts out empty,checks condition to be filled (currently "is first") then gets a sub-div
+-->
+{%for i in stops%}
+<div class="empty" id="{{forloop.counter}}">
+{%if forloop.counter == 1%}
+<div class="filled" draggable="true"></div>
+{%endif%}
+</div>
+{% endfor %}
+
+<!--JAVASCRIPT - for some reason doesn't like to be added to extrahead-->
+<script type="text/javascript">
+	const fill=document.querySelector('.filled');
+	const empties=document.querySelectorAll('.empty');
+
+
+	fill.addEventListener('dragstart',dragStart);
+	fill.addEventListener('dragend',dragEnd);
+
+	for(const empty of empties){
+		empty.addEventListener('dragover',dragOver);
+		empty.addEventListener('dragenter',dragEnter);
+		empty.addEventListener('dragleave',dragLeave);
+		empty.addEventListener('drop',dragDrop);
+			
+	}
+
+	function  dragStart(){
+		this.className+=' hold';
+		setTimeout(()=>this.className='invisible',0);
+	}
+	function  dragEnd(){
+		this.className='filled';
+	}
+	function  dragOver(e){
+		e.preventDefault();
+	}
+	function  dragLeave(){
+		this.className='empty';
+	}
+	function  dragDrop(){
+		this.className='empty';
+		this.append(fill);
+	}
+	function  dragEnter(e){
+		e.preventDefault();
+		this.className+=' hover';
+	}
+	
+
+
+</script>
+
+{%endblock content%}

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 
@@ -67,6 +68,18 @@ class Pickup(models.Model):
 
 	specinstruct=models.TextField(blank=True)
 	imgs		=models.ImageField(blank=True)
+
+	trip 		=models.ForeignKey('Trip',on_delete=models.SET_NULL,null=True,blank=True)
+class Trip(models.Model):
+	#__str__ shows date, {dump: Dump Run,pd: x Stop ~Pickup~ Run}
+	scheduleddate=models.DateTimeField() 
+	driver		=models.CharField(max_length=100)
+
+	TRIPTYPE_CHOICES=(
+		('PD','Pickup/Dropoff'),
+		('DMP','Dump Run'))
+
+	triptype 	=models.CharField(max_length=3,choices=TRIPTYPE_CHOICES,default='PD')
 
 # class Sale(models.Model):
 

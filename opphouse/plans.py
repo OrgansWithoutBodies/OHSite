@@ -14,7 +14,7 @@ schedule todolist
         do
         integrate admin
 
-    truck admin app - python, android, web?
+    truck admin app - python, android, web
         gets from web/can be input manually
     
     dock 
@@ -64,38 +64,54 @@ current site
             looks weird @ different resolutions
         jquery starting to get old, not a big strike against it tho 
 
-    layout:
-        home
-        about
-            subset of home
-        events
-        view 
-        volunteer
-        donate
-        thrift
-        WfH
-            multi-step form
-        Contact
-        docs - video?
-
-end goal:
-    all necessary pages
+   
+END GOAL:
+    
     RECREATE FIRST, then add fancy
+        all necessary pages
+         layout:
+            base
+                get royalty-free page rip if possible
+                parallax in mainpicture
+                drop shadow from header
+            home
+            about
+                subset of home
+            events
+            view 
+            volunteer
+            donate
+            thrift
+            WfH
+                multi-step form (https://stackoverflow.com/questions/5478432/making-a-django-form-class-with-a-dynamic-number-of-fields,https://www.caktusgroup.com/blog/2018/05/07/creating-dynamic-forms-django/)
+            Contact
+            docs - video?
+
+
     Apache 
         https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/modwsgi/ - get to run w django
+        nginx instead?
     Event stuff
         figure out how to pattern non-img'd events
         Photo-Only Event (several container choices?)
-        
+    proxy for drivers? http://benlopatin.com/using-django-proxy-models/
+        other alternatives https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#proxy 
+        maybe thru personal info?
+            https://stackoverflow.com/questions/11472606/adding-fields-to-users-personal-info-in-django-admin-page
+    class-based views ?
+        https://www.youtube.com/watch?v=TrJtYmfTWiA&list=PLEsfXFp6DpzTD1BD1aWNxS2Ep06vIkaeW&index=37
+
     SEO hacking
         twitter good for SEO https://www.youtube.com/watch?v=T3GsJgxAB9Q&list=PL7Nf-MXzozDLSk9nLsAkosV9h3C4eBXgn&index=13
         slugs help w SEO?
+
     TinyMCE for wsyiwyg page editor (https://www.youtube.com/watch?v=bJeTEDRvGVA&list=PL7Nf-MXzozDLSk9nLsAkosV9h3C4eBXgn&index=4)
-    
+    GraphQL (graphene) for more specific API calls?
     editable container for info under pic on mainpage (commented-out Statefarm bit )
-        checkbox for whether or not is shown
+        checkbox for whether or not is shown 
+
     sitemap (https://www.youtube.com/watch?v=xAXMqiPSY34)
-    captcha contact
+    captcha in contact/pickup
     retina (js or otherwise)
     basic slide animations (jq or greensock)
     user-editable translations thru admin - ES, maybe ZH
@@ -103,54 +119,79 @@ end goal:
         has different ways of showing if text is already translated manually
             if not will be google translated (don't want to have to query it each time - saved in other file?)
                 https://cloud.google.com/translate/docs/translating-text#translate_translate_text-protocol
+
     Photo-Only Event (several container choices?)
-   
-    get royalty-free page rip if possible
     clickable asterisk scrolls down to page info
     editable sponsors - scrollbar?
-        "WebEditor"(or similar) Group can edit sponsors & events
+        "WebManager"(or similar) Group can edit sponsors & events
         paypal linked to adding to sponsor in some form?
+
     ~Major Sponsors~
     format notes
-        parallax in mainpictures
-            put in base, picture specified by template
-        drop shadow from header
+        make pictures editable thru admin
+    
 
     pickup scheduling form 
         sends info to android app db 
             (REST sending to GCM- w authentification: https://techstricks.com/api-authentication-django-and-android-apps/)
+
         employees in group "Pickup" can change pickup data & call api
-   
+        which stops are in which trips editable by truckscheduler javascript applet
+        "I want to be notified again " + minute range from 0 - 60 +"mins before arrival"
+
     active sales 
         make selected sale type affect boxes (generic #1 #2 selected by box?)
+
     Marketplace (https://www.youtube.com/watch?v=9Wbfk16jEOk)
         connected to fb &/ ebay
             facebook app - out of date? (https://www.youtube.com/watch?v=jxDHNSW28bs&index=10&list=PL7Nf-MXzozDLSk9nLsAkosV9h3C4eBXgn)
         https://developers.facebook.com/docs/marketing-apisre
+
     "Is Dock Open" badge
         auto open/closed based on hours,have some way (floor app & dock app) to send closing signal outside of regular times
             careful abt server clock - hide if thinks is before like 2010
+
     map w all marked pts - maybe not since gmaps is dumb now?
         figure out details abt cloud pricing/nonprofit api discounts
         use OpenStreetMap for planning fastest route? or google credits if low volume 
 
     more in-depth social media integration
-   
-
+    API stuff
+        tests - https://scotch.io/tutorials/build-a-rest-api-with-django-a-test-driven-approach-part-1
+        authentication
+        get better url scheme working
+        have specific pickups accessible to specific customers, authorize thru key sent to email?
+            scheduling status/updateable & eventually push notification updates?
+            editable info until manager locks-in to trip details
     Use Model Forms!!! - crispy too?
-    DB backup manager (fixtures?)
+        formsets helpful for multiple repeated (sales? still good to know abt if not useful here) https://whoisnicoleharris.com/2015/01/06/implementing-django-formsets.html
 
+    DB backup manager (fixtures?)
+    TripScheduler:
+        integration to/from gdocs
+        get pickups from db/other methods
+        each trip gets attached to date & employee(s)
+        lock-in trip (no longer donor-changeable, sends to pickup app)
+        
     Way down the line goals:
         eventually make better video than that movie maker shit
         connect fancy lights maybe (https://www.youtube.com/watch?v=5zhReMb_Yek&pbjreload=10)
     
-done:
+DONE:
     git-ify'd :) 
+    Truckscheduler 
+        base html/js/css skeleton
+    API     
+        Accessible
+
+    Event  
+        reads from db models
     
-todo:
+    
+TODO:
     media folders
-    event reads from db
-    
+    fix urls
+
 data structures:
     Event Data Structure:
         Title

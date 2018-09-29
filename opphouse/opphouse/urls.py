@@ -17,9 +17,18 @@ from django.contrib import admin
 
 from django.urls import path,include
 
+from rest_framework import routers
+
 from webapp import views
+
+router=routers.DefaultRouter()
+router.register(r'pickups',views.PickupViewSet)
+
+
 urlpatterns = [
-	path('',views.home),
+    path('',include(router.urls)),
+	path('index/',views.home),
+    path('truckscheduler/',views.truckscheduler,name='truckscheduler'),
     path('admin/', admin.site.urls,name='adminpage'),
     path('home/',views.home,name='homepage'),
     path('thrift-store/',views.thriftstore,name='thrift-store'),
@@ -27,4 +36,7 @@ urlpatterns = [
     path('wheels-for-hope/',views.wheelsforhope,name='wheels-for-hope'),
     path('contact/',views.contact,name='contact'),
     path('events/',views.events,name='events'),
+    path('api-auth/',include('rest_framework.urls',namespace='rest_framework'))
 ]
+
+#make specific urls.py for APIs?

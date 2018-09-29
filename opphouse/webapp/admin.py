@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, Sponsor
+from .models import *
 
 #Model Admins
 class EventAdmin(admin.ModelAdmin):
@@ -8,6 +8,10 @@ class EventAdmin(admin.ModelAdmin):
 
 #Model Registration
 admin.site.register(Event,EventAdmin)
+admin.site.register(Donor)
 admin.site.register(Sponsor)
+admin.site.register(Pickup)
+
+admin.site.register(Trip)
 
 
