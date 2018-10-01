@@ -5,4 +5,13 @@
 
 
 {%block pagecontent%}
+<form method="POST">
+	{%csrf_token%}
+	{{form.as_p}}
+	<!--
+		Javascript/AJAX goes here to switch pages
+	-->
+	{{dform.as_p}}
+<input type="submit" value="Submit">	
+</form>
 {%endblock pagecontent%}

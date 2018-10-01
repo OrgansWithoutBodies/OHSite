@@ -8,7 +8,7 @@ class Donor(models.Model):
 	last_name	=models.CharField(max_length=50)
 
 	phone		=models.CharField(max_length=20)
-	address		=models.CharField(max_length=100)
+	address		=models.CharField(max_length=100)#break address into separate fields
 	email 		=models.EmailField()
 
 	otherinfo	=models.TextField(blank=True)
@@ -26,13 +26,13 @@ class Car(models.Model):
 	donor 		=models.ForeignKey('Donor',on_delete=models.CASCADE)
 	
 	vin			=models.CharField(max_length=17) #autocheck vin?
-	mileage		=models.DecimalField(decimal_places=1,max_digits=10)
+	mileage		=models.DecimalField(decimal_places=1,max_digits=10)#multiple choice
 	
 	year		=models.IntegerField()
 	make		=models.CharField(max_length=30)
 	carmodel	=models.CharField(max_length=30)
-
-	extrainfo	=models.TextField()
+	#does it run/have the title needed
+	extrainfo	=models.TextField(blank=True)
 
 
 class Event(models.Model):#attachable associated documents?
@@ -45,6 +45,7 @@ class Event(models.Model):#attachable associated documents?
 	img 		=models.ImageField(blank=True)
 	loc			=models.TextField()
 
+	fblink 		=models.URLField(blank=True)
 	def __str__(self):
 		return self.eventname
 

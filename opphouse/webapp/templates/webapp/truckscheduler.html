@@ -50,6 +50,7 @@ body{
 <!--
 	constructs divs thru recursive list, defined by arguments are passed in from view
 		each div starts out empty,checks condition to be filled (currently "is first") then gets a sub-div
+
 -->
 {%for i in stops%}
 <div class="empty" id="{{forloop.counter}}">
@@ -58,6 +59,13 @@ body{
 {%endif%}
 </div>
 {% endfor %}
+<button>Save Stops For Trip
+</button>
+
+
+
+
+
 
 <!--JAVASCRIPT - for some reason doesn't like to be added to extrahead-->
 <script type="text/javascript">

@@ -48,6 +48,9 @@ helpful resources:
     https://scrimba.com/g/gR8PTE (CSS Grid)
     https://ultimatedjango.com/learn-django/lessons/create-the-project-base-template/(navbar/django templating)
     https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django (good in-depth tutorial)
+    https://www.youtube.com/watch?v=-oWIyFYyNQw&list=PLEsfXFp6DpzTD1BD1aWNxS2Ep06vIkaeW&index=26 (eps 23-28 are good overview of form details)
+    https://www.youtube.com/watch?v=zojnkKGRXp0 (form mixins ~8 min)
+
 current site 
     problems:
         convoluted way of scheduling pickups
@@ -55,14 +58,23 @@ current site
         barely optimized for mobile (line wraps, horizontalgroup buttons, non-persistent menu(stylistic but still), nonclickable phone #'s,basic forms, dreamweaver rly intended for static/old webpages)
         "thirft store","our work" repurposed for sponsorships lol 
         no https
+        sponsors make 
+        parallax gets screwy on small screens
         redundant contact, different zips means hardcoded instead of shared vars (sloppy!!)
         very late 90's early00's vibe (Dreamweaver templates pretty outdated nowadays)
+        "get in involved"
         contact/contact-us domain confusion on runaround leads to dead pages (on roughly half of the pages the "Sign Up To Volunteer" button redirects to an old page, but not on others - hardcoded repeated headache)
+            fixed as of October, changed to email button w 50/50 shot of emailing Sunny or nicholasC
         no parallax for sections w buttons (main screen/WFH)
             parallax thru js (stellar.js) - inefficient?
         bootstrap grid instead of native CSS - even more javascript for basic structure, oldish
-            looks weird @ different resolutions
+            looks weird @ different resolutions 
         jquery starting to get old, not a big strike against it tho 
+        wufoo forms for WFH additional expense
+        see if can submit phony form
+        old events are just commented out
+        sidegap on mobile
+        logo gets jittery near threshhold
 
    
 END GOAL:
@@ -71,9 +83,13 @@ END GOAL:
         all necessary pages
          layout:
             base
+                template tags for menu/soc?
                 get royalty-free page rip if possible
                 parallax in mainpicture
-                drop shadow from header
+                
+                Header:
+                    when big enough logo & menu on same row, when too small menu collapses into single collapsible toggle button (which gets hidden on zoom in)
+                    drop shadow from header
             home
             about
                 subset of home
@@ -84,16 +100,20 @@ END GOAL:
             thrift
             WfH
                 multi-step form (https://stackoverflow.com/questions/5478432/making-a-django-form-class-with-a-dynamic-number-of-fields,https://www.caktusgroup.com/blog/2018/05/07/creating-dynamic-forms-django/)
+                colorful error box
+                accepts nonsense for everything but email & Phone
+
             Contact
             docs - video?
 
-
+    throw together spreadsheet of pricing difference
     Apache 
         https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/modwsgi/ - get to run w django
         nginx instead?
     Event stuff
         figure out how to pattern non-img'd events
         Photo-Only Event (several container choices?)
+        dropdown box for fb
     proxy for drivers? http://benlopatin.com/using-django-proxy-models/
         other alternatives https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#proxy 
         maybe thru personal info?
@@ -110,11 +130,13 @@ END GOAL:
     editable container for info under pic on mainpage (commented-out Statefarm bit )
         checkbox for whether or not is shown 
 
+    CSS Grid for moving based on screensize (https://www.youtube.com/watch?v=M3qBpPw77qo)
     sitemap (https://www.youtube.com/watch?v=xAXMqiPSY34)
     captcha in contact/pickup
     retina (js or otherwise)
     basic slide animations (jq or greensock)
     user-editable translations thru admin - ES, maybe ZH
+        knows which translation to provide for other pages?
         "Translator" group connected to specific language - ISO639-1 code included
         has different ways of showing if text is already translated manually
             if not will be google translated (don't want to have to query it each time - saved in other file?)
@@ -128,10 +150,11 @@ END GOAL:
 
     ~Major Sponsors~
     format notes
-        make pictures editable thru admin
+        make pictures editab+le thru admin
     
 
     pickup scheduling form 
+        AJAX form so wont refresh - same w WFH
         sends info to android app db 
             (REST sending to GCM- w authentification: https://techstricks.com/api-authentication-django-and-android-apps/)
 
@@ -170,9 +193,11 @@ END GOAL:
     TripScheduler:
         integration to/from gdocs
         get pickups from db/other methods
+            AJAX
         each trip gets attached to date & employee(s)
         lock-in trip (no longer donor-changeable, sends to pickup app)
-        
+        animations (marching ants,)
+
     Way down the line goals:
         eventually make better video than that movie maker shit
         connect fancy lights maybe (https://www.youtube.com/watch?v=5zhReMb_Yek&pbjreload=10)
@@ -186,11 +211,19 @@ DONE:
 
     Event  
         reads from db models
-    
+
+    WfH
+        Form skeleton
+    Base
+        CSS grid skeleton for menu
+            somewhat responsive
     
 TODO:
-    media folders
-    fix urls
+    media folders more specific 
+    fix server time error
+    logo changes sizes on screen change
+    json multistep form 
+    
 
 data structures:
     Event Data Structure:

@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<link rel="stylesheet" type="text/css" href="{%static 'webapp/main.css'%}">
 	<link rel="icon" href="{% static 'imgs/opportunity-house-logo-square-icon.png'%}">
 	<title>{%block title%}{%endblock title%}</title>
@@ -10,26 +11,41 @@
 
 	<header>
 		{%block header %}
+		<div class="grid-container">
 
-		<div>
-			<a href='/'>
-				<img src="{%static 'imgs/opportunity-house-logo.png'%}">
-			</a>
+			<div class="grid-logo" id="logocontainer">
+				<a href='/'>
+					<img src="{%static 'imgs/opportunity-house-logo.png'%}">
+				</a>
+			</div>
+			<div class="grid-social" id="socialcontainer">
+				<div class="soc-item"><h5>test2</h5></div>
+				<div class="soc-item"><h5>test2</h5></div>
+				<div class="soc-item"><h5>test2</h5></div>
+
+			</div>	
+
+			<div class="grid-menu" id="menucontainer">
+				<div class="menu-item"><h5><a href='/'>menutest</a></h5></div>
+				<div class="menu-item"><h5>menutest</h5></div>
+				<div class="menu-item"><h5>menutest</h5></div>
+				<div class="menu-item"><h5>menutest</h5></div>
+				<div class="menu-item"><h5>menutest</h5></div>
+			</div>
 		</div>
-
-		<div>
-			<nav>
-				{%block navbar%}
-				{%endblock navbar%}
-			</nav>
-		</div>
-
 		{% endblock header %}
 	</header>
 
 	{%block pagecontent%}
 	{%endblock pagecontent%}
 
+
+
+
+
+	<footer>
+
+	</footer>
 </body>
 </html>
 

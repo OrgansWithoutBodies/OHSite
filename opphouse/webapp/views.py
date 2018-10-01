@@ -5,11 +5,14 @@ from rest_framework import viewsets
 
 from .models import *
 from .serializers import *
+from .forms import *
 #render_to_response can include  context_instance=RequestContext(request) for session tracking i think?
 objs=[{'str':'testing','test':'ing'},
 {'str':'tested','othkey':'test'}]
 
 # Create your views here.
+def base(request):
+	return render(request,"",con)
 def home(request):
 	context={
 		'events':objs,
@@ -20,7 +23,7 @@ def home(request):
 
 
 def events(request):
-	evlist=Event.objects.all()
+	evlist=Event.objects.all()#gets all events from database, will filter out past ones
 	context={
 		'events':evlist
 	}
@@ -36,7 +39,13 @@ def thriftstore(request):
 	return render(request,"webapp/thrift-store.html")
 
 def wheelsforhope(request):
-	return render(request,"webapp/wheels-for-hope.html")
+	form=CarForm(request.POST)
+	dform=DonorForm(request.POST)
+	context={
+	"form":form,
+	'dform':dform
+	}
+	return render(request,"webapp/wheels-for-hope.html",context)
 
 def volunteer(request):
 	return render(request,"webapp/volunteer.html")

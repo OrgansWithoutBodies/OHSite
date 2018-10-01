@@ -11,6 +11,8 @@ admin.site.register(Event,EventAdmin)
 admin.site.register(Donor)
 admin.site.register(Sponsor)
 admin.site.register(Pickup)
+admin.site.register(Car)
+
 
 admin.site.register(Trip)
 

@@ -26,8 +26,8 @@ router.register(r'pickups',views.PickupViewSet)
 
 
 urlpatterns = [
-    path('',include(router.urls)),
-	path('index/',views.home),
+    path('api/',include(router.urls)),
+	path('',views.home),
     path('truckscheduler/',views.truckscheduler,name='truckscheduler'),
     path('admin/', admin.site.urls,name='adminpage'),
     path('home/',views.home,name='homepage'),
