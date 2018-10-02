@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 from django.urls import path,include
 
 from rest_framework import routers
@@ -31,12 +34,16 @@ urlpatterns = [
     path('truckscheduler/',views.truckscheduler,name='truckscheduler'),
     path('admin/', admin.site.urls,name='adminpage'),
     path('home/',views.home,name='homepage'),
+    path('donate/',views.donate,name='donate'),
     path('thrift-store/',views.thriftstore,name='thrift-store'),
     path('volunteer/',views.volunteer,name='volunteer'),
     path('wheels-for-hope/',views.wheelsforhope,name='wheels-for-hope'),
     path('contact/',views.contact,name='contact'),
     path('events/',views.events,name='events'),
-    path('api-auth/',include('rest_framework.urls',namespace='rest_framework'))
+    path('api-auth/',include('rest_framework.urls',namespace='rest_framework')),
 ]
 
 #make specific urls.py for APIs?
+
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

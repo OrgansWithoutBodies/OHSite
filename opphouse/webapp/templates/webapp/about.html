@@ -10,6 +10,42 @@ test
 	<button onclick="window.location.href='events/'">Go To event</button>
 
 	<button onclick="window.location.href='truckscheduler/'">Go To truck</button>
+	<h5>Major Sponsors</h5>
+	<div class="major-sponsors-grid">
+		
+		{%for m in majorsponsors%}
+			<div class="major-sponsor">
+				
+				<a href="{{m.url}}">
+					<div class="sponsor-image">
+						{%if m.pic%}
+						<img src="{{m.pic.url}}" alt="{{m.sponsorname}}" >
+						{%else%}
+						<img alt="{{m.sponsorname}}">
+						{%endif%}
+					</div>
+				</a>
+				
+			</div>
+		{%endfor%}
+	</div>
+	<p>
+		<h5> Sponsored by </h5>
+		<div class="sponsors-grid">
+			{%for s in sponsors%}
+				<div class="sponsor">
+					<a href="{{s.url}}">
+
+						{%if s.pic%}
+								<img src="{{s.pic.url}}" alt="{{s.sponsorname}}" height=150px>
+							{%else%}
+								<img alt="{{s.sponsorname}}">
+						{%endif%}
+					</a>
+				</div>
+			{%endfor%}
+		</div>
+	<p>
 	<!--<button onclick="window.location.href='wheels-for-hope/'">other</button>
 -->
 {%endblock pagecontent%}	

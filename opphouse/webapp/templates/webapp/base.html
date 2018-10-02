@@ -4,6 +4,7 @@
 <head>
 
 	<link rel="stylesheet" type="text/css" href="{%static 'webapp/main.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'webapp/grid.css'%}">
 	<link rel="icon" href="{% static 'imgs/opportunity-house-logo-square-icon.png'%}">
 	<title>{%block title%}{%endblock title%}</title>
 </head>
@@ -19,15 +20,18 @@
 				</a>
 			</div>
 			<div class="grid-social" id="socialcontainer">
-				<div class="soc-item"><h5>test2</h5></div>
-				<div class="soc-item"><h5>test2</h5></div>
-				<div class="soc-item"><h5>test2</h5></div>
+				<div class="soc-item"><a href="https://www.facebook.com/opportunityhousevv/"><img src = "{%static 'imgs/soc/fb.png'%}" width="20"></a>	</img></div>
+				<div class="soc-item"><a href="https://twitter.com/VacavilleOHouse"><img src = "{%static 'imgs/soc/twitter.png'%}" width="20"></img></a></div>
+				<div class="soc-item"><a href="https://www.instagram.com/opportunitythrift/"><img src = "{%static 'imgs/soc/insta.png'%}" width="20"></img></a></div>
 
 			</div>	
 
 			<div class="grid-menu" id="menucontainer">
-				<div class="menu-item"><h5><a href='/'>menutest</a></h5></div>
-				<div class="menu-item"><h5>menutest</h5></div>
+
+				{%block menu%}
+				{%endblock menu%}
+				<div class="menu-item"><h5><a href='/'>menu</a></h5></div>
+				<div class="menu-item"><h5><a href='/events'>events</a></h5></div>
 				<div class="menu-item"><h5>menutest</h5></div>
 				<div class="menu-item"><h5>menutest</h5></div>
 				<div class="menu-item"><h5>menutest</h5></div>
@@ -35,6 +39,12 @@
 		</div>
 		{% endblock header %}
 	</header>
+	<div class="mainimg">
+
+	{%block mainimg%}
+	{%endblock mainimg%}
+	</div>
+	<div class="paperheader"><img src="{%static 'imgs/torn-paper.png'%}"></img></div>
 
 	{%block pagecontent%}
 	{%endblock pagecontent%}
@@ -44,7 +54,30 @@
 
 
 	<footer>
+		<div class="foot-involve">
+			<div class="involve-head">
+				<h5>What Are You Waiting For?</h5>
+			</div>
+			<div class="involve-butt">
+				<button>Get Involved!</button>
+			</div>
+			{%block footinvolve%}
 
+			{%endblock footinvolve%}
+
+		</div>
+		<div class="foot-contact">
+			<div class="footcontact-item">Location
+			</div>
+			<div class="footcontact-item">Shelter
+			</div>
+			<div class="footcontact-item">Store
+			</div>
+		</div>
+		<div class="foot-signature">
+		<p style="font-size:xx-small;">
+			Web Design By V :)</p>
+		</div>
 	</footer>
 </body>
 </html>

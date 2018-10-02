@@ -11,9 +11,16 @@ Contact
 
 
 {%block pagecontent%}
+<form>
+
+{%csrf_token%}
+{{form.as_p}}
+<input type="submit" value="Submit"/>
+</form>
+
+
+
 <script type="text/javascript">
 	
-		alert("hello world, this is contacts");
-
 </script>
 {%endblock pagecontent%}

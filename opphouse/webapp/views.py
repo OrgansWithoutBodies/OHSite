@@ -9,15 +9,18 @@ from .forms import *
 #render_to_response can include  context_instance=RequestContext(request) for session tracking i think?
 objs=[{'str':'testing','test':'ing'},
 {'str':'tested','othkey':'test'}]
+#footinvolve has different string per page
 
 # Create your views here.
 def base(request):
-	return render(request,"",con)
+	return render(request,"")
 def home(request):
+	#needs to include sponsors, major sponsors
 	context={
 		'events':objs,
 		'title':'titletext',
-		'testlist':['0','1','3']
+		'sponsors':Sponsor.objects.filter(sponsortype='SP'),
+		'majorsponsors':Sponsor.objects.filter(sponsortype='MJ')
 	}
 	return render(request,"webapp/about.html",context)
 
@@ -30,13 +33,29 @@ def events(request):
 	return render(request,"webapp/events.html",context)
 
 def about(request):
+
 	return render(request,"webapp/about.html")
 
 def contact(request):
-	return render(request,"webapp/contact.html")
+	context={
+		'form':ContactForm(request.POST)
+	}
+	return render(request,"webapp/contact.html",context)
+
+def donate(request):
+	context={
+	}
+	return render(request,"webapp/donate.html",context)
+	
 
 def thriftstore(request):
-	return render(request,"webapp/thrift-store.html")
+	#excluded items?
+	context={
+
+	}
+	return render(request,"webapp/thrift-store.html",context)
+
+
 
 def wheelsforhope(request):
 	form=CarForm(request.POST)
@@ -47,14 +66,21 @@ def wheelsforhope(request):
 	}
 	return render(request,"webapp/wheels-for-hope.html",context)
 
+
+
+
 def volunteer(request):
-	return render(request,"webapp/volunteer.html")
+	context={}
+	return render(request,"webapp/volunteer.html",context)
 
 def truckscheduler(request):
 	pertrip=3
 	trips=1
-	context={'stops':['test']*pertrip*trips}
+	context={'stops':['test']*pertrip*trips}#janky
 	return render(request,"webapp/truckscheduler.html",context)
+
+
+
 
 
 class PickupViewSet(viewsets.ModelViewSet):

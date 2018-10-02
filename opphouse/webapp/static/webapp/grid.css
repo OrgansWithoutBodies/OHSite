@@ -1,0 +1,200 @@
+/*ONLY PUT STUFF FOR CSS GRID IN HERE, if user doesn't have it then can omit file entirely/comment out to easily see what would look like*/
+/*HEADER*/
+.grid-container{
+	display:inline-grid;
+	grid-template-rows: 1fr 2fr 1fr;
+	grid-gap: 0px;
+}
+
+.grid-logo{
+	grid-row:2;
+	grid-column:1/3;
+	align-self: center;
+	justify-content: center;
+
+}
+
+
+
+/*HEADER SOCIAL*/
+.grid-social{
+	display:grid;
+	grid-row:1;
+	grid-column:1/10;
+	justify-content: right;
+}
+.soc-item{
+	grid-row:1;
+	padding:5px;
+}
+
+
+
+
+/*HEADER MENU*/
+.grid-menu{
+	grid-area: menu;
+	justify-content: center;
+	display:grid;
+	grid-row:3;
+
+}
+.menu-item{
+	grid-row:1;
+}
+
+
+
+
+
+/*SPONSORS*/
+.major-sponsors-grid{
+
+	display: grid;
+	grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+	grid-gap:30px;
+}
+.major-sponsor{
+	align-content: center;
+}
+
+.sponsors-grid{
+	display: grid;
+	align-content:center;
+	grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+
+}
+
+.sponsor{
+}
+
+
+
+
+/*THRIFT STORE PAGE*/
+.thrift-content{
+	display: grid;
+	grid-column-gap: 20px;
+	grid-template-columns: 1fr 1fr;
+}
+.exclusion{
+	grid-column: 1;
+	grid-row:1/10;
+}
+.store-hours{
+	grid-column:2;
+}
+
+.donate-hours{
+	grid-column:2;
+}
+.pickup{
+	grid-column:2;
+}
+
+
+
+
+/*EVENT PAGE*/
+.eventwithpic{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	/*grid-template-columns:repeat(2,minmax(100px,max-content));*/
+}
+
+.eventinfo{
+	grid-column:1;
+	display: grid;
+}
+.eventheader{
+	grid-row:1;
+
+}
+.eventdescription{
+	grid-row:2;
+}
+
+.eventlogo{
+	align-self:center;
+	justify-content: center;
+	grid-column:2;
+}
+.eventbutton{
+	grid-column:1;
+	grid-row:2;
+}
+.eventloc{
+
+}
+.eventdatetime{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*FOOTER*/
+footer{
+	display: grid;
+	grid-template-areas:
+	"footcontact"
+	"footinvolve"
+	"footsig";
+}
+
+
+.foot-involve{
+	display:grid;
+	justify-content: center; 
+	grid-area:footinvolve;
+	align-content: center;
+	grid-template-areas: ". head butt .";
+}
+.involve-head{
+	grid-area:head;
+}
+.involve-butt{
+	grid-area:butt;
+}
+
+
+
+
+
+.foot-contact{
+	display:grid;
+	grid-area:footcontact;
+	justify-content: space-around;
+	grid-template-columns: repeat(3,1fr);
+}
+.footcontact-item{
+}
+
+
+
+
+.foot-signature{
+	justify-content: center;
+	display: grid;
+	grid-area:footsig;
+}
+
+
+
+/*ON RESIZE*/
+@media(min-width: 900px){
+
+	.grid-menu{
+		grid-row:2;
+		grid-column:4;
+	}
+
+}

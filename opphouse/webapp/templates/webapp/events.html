@@ -8,7 +8,42 @@
 
 
 {% for e in events %}
-	<h3>{{e.eventname}}</h3>
+	<div class='eventwithpic'>
+		<div class='eventinfo'>
+			<div class='eventheader'>
+				<h3>{{e.eventname}}</h3>
+				<p/>
+				<h1>{{e.startdate}} | ${{e.price}}</h1>
+				<p/>
+			</div>
+			<div class='eventdescription'>
+					{{e.eventdesc}}
+			</div>
+			<hr width=200px align='left'>
+			<div class='eventdatetime'>
+				<h3>Date & Time</h3>
+					<p/>
+					{{e.startdate}} - {{e.enddate}}
+			</div>
+
+			<div class='eventloc'>
+				<h3>Location</h3>
+				<p/>
+				{{e.loc}}
+			</div>
+		
+		</div>
+		<div class='eventlogo'>
+			{%if e.img%}
+				<img src="{{e.img.url}}" width=500px/>
+			{%endif%}
+			
+			</div>
+			<div class='eventbutton'>
+			<button onclick='window.location.href="{{e.url}}"'>Tickets - ${{e.price}} each</button>
+		</div>
+	</div>
+	<p/>
 {% endfor %}
 
 

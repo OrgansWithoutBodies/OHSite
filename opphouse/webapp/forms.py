@@ -15,3 +15,10 @@ class DonorForm(forms.ModelForm):
 		model=Donor
 		fields='__all__'
 		
+
+
+class ContactForm(forms.Form):
+	name=forms.CharField()
+	email=forms.EmailField()
+	phone=forms.IntegerField()
+	message=forms.CharField()

@@ -45,6 +45,9 @@ class Event(models.Model):#attachable associated documents?
 	img 		=models.ImageField(blank=True)
 	loc			=models.TextField()
 
+	eventdesc	=models.TextField(blank=True)
+
+	url 		=models.URLField(blank=True)
 	fblink 		=models.URLField(blank=True)
 	def __str__(self):
 		return self.eventname
@@ -54,8 +57,11 @@ class Event(models.Model):#attachable associated documents?
 class Sponsor(models.Model):
 	sponsorname	=models.CharField(max_length=100)
 	url 		=models.URLField()
-	pic 		=models.ImageField()
-
+	pic 		=models.ImageField(blank=True)
+	SPONSOR_TYPES=(
+		('MJ','Major Sponsor'),
+		('SP','Sponsored by'))
+	sponsortype =models.CharField(max_length=2,choices=SPONSOR_TYPES,default='SP')
 	def __str__(self):
 		return self.sponsorname
 
@@ -81,6 +87,11 @@ class Trip(models.Model):
 		('DMP','Dump Run'))
 
 	triptype 	=models.CharField(max_length=3,choices=TRIPTYPE_CHOICES,default='PD')
+
+
+
+
+
 
 # class Sale(models.Model):
 
