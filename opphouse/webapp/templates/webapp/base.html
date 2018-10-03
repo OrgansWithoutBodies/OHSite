@@ -3,8 +3,8 @@
 <html>
 <head>
 
-	<link rel="stylesheet" type="text/css" href="{%static 'webapp/main.css'%}">
 	<link rel="stylesheet" type="text/css" href="{%static 'webapp/grid.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'webapp/main.css'%}">
 	<link rel="icon" href="{% static 'imgs/opportunity-house-logo-square-icon.png'%}">
 	<title>{%block title%}{%endblock title%}</title>
 </head>
@@ -15,7 +15,7 @@
 		<div class="grid-container">
 
 			<div class="grid-logo" id="logocontainer">
-				<a href='/'>
+				<a href='{% url "homepage"%}'>
 					<img src="{%static 'imgs/opportunity-house-logo.png'%}">
 				</a>
 			</div>
@@ -25,17 +25,24 @@
 				<div class="soc-item"><a href="https://www.instagram.com/opportunitythrift/"><img src = "{%static 'imgs/soc/insta.png'%}" width="20"></img></a></div>
 
 			</div>	
-
+			<input type="checkbox" class="nav-toggle" id="nav-toggle" checked>
+			
 			<div class="grid-menu" id="menucontainer">
-
+			
 				{%block menu%}
 				{%endblock menu%}
-				<div class="menu-item"><h5><a href='/'>menu</a></h5></div>
-				<div class="menu-item"><h5><a href='/events'>events</a></h5></div>
-				<div class="menu-item"><h5>menutest</h5></div>
-				<div class="menu-item"><h5>menutest</h5></div>
-				<div class="menu-item"><h5>menutest</h5></div>
+				<div class="menu-item"><h5><a class="menu-a" href='{% url "homepage"%}#about-us'>About</a></h5></div>
+				<div class="menu-item"><h5><a class="menu-a" href='{% url "events"%}'>Events</a></h5></div>
+				<div class="menu-item"><h5><a class="menu-a" href='{% url "volunteer"%}'>Volunteer</a></h5></div>
+				<div class="menu-item"><h5><a class="menu-a" href='{% url "donate"%}'>Donate</a></h5></div>
+				<div class="menu-item"><h5><a class="menu-a" href='{% url "thrift-store"%}'>Thrift Store</a></h5></div>
+				<div class="menu-item"><h5><a class="menu-a" href='{% url "wheels-for-hope"%}'>Wheels For Hope</a></h5></div>
+				<div class="menu-item"><h5><a class="menu-a" href='{% url "contact"%}'>Contact</a></h5></div>
+			
 			</div>
+			<label for="nav-toggle" class="nav-toggle-label">
+				<div>MENU</div>
+			</label>
 		</div>
 		{% endblock header %}
 	</header>

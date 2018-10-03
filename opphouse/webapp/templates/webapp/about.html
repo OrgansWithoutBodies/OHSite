@@ -7,30 +7,33 @@ test
 
 {%block pagecontent%}
 	<h5>{{title}}</h5>
-	<button onclick="window.location.href='events/'">Go To event</button>
+	<a href="{% url 'events'%}"><button>Go To event</button></a>
 
-	<button onclick="window.location.href='truckscheduler/'">Go To truck</button>
-	<h5>Major Sponsors</h5>
+	<div id="about-us">
+		<h5>About Us!</h5>
+	</div>
+	<a href="{% url 'truckscheduler'%}"><button>Go To truck</button></a>
+	<h3 class="block-title">Major Sponsors</h3>
 	<div class="major-sponsors-grid">
 		
 		{%for m in majorsponsors%}
 			<div class="major-sponsor">
 				
-				<a href="{{m.url}}">
-					<div class="sponsor-image">
+					<a href="{{m.url}}" class="sponsor-a">
 						{%if m.pic%}
-						<img src="{{m.pic.url}}" alt="{{m.sponsorname}}" >
+						<img width=130em class="centerimage" src="{{m.pic.url}}" alt="{{m.sponsorname}}" >
+
 						{%else%}
-						<img alt="{{m.sponsorname}}">
+						<img class="centerimage" alt="{{m.sponsorname}}">
 						{%endif%}
-					</div>
-				</a>
+					</a>
+				
 				
 			</div>
 		{%endfor%}
 	</div>
 	<p>
-		<h5> Sponsored by </h5>
+		<h5 class="block-title"> Sponsored by </h5>
 		<div class="sponsors-grid">
 			{%for s in sponsors%}
 				<div class="sponsor">
@@ -45,7 +48,5 @@ test
 				</div>
 			{%endfor%}
 		</div>
-	<p>
-	<!--<button onclick="window.location.href='wheels-for-hope/'">other</button>
--->
+	<p>		
 {%endblock pagecontent%}	

@@ -38,6 +38,7 @@ schedule todolist
         handlers to make sql objects interoperable
 
     better bug reporting
+            integrate git?
 
 
 
@@ -50,7 +51,7 @@ helpful resources:
     https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django (good in-depth tutorial)
     https://www.youtube.com/watch?v=-oWIyFYyNQw&list=PLEsfXFp6DpzTD1BD1aWNxS2Ep06vIkaeW&index=26 (eps 23-28 are good overview of form details)
     https://www.youtube.com/watch?v=zojnkKGRXp0 (form mixins ~8 min)
-
+    https://www.youtube.com/watch?v=8QKOaTYvYUA (CSS-Only Collapsing Menubar w animations - for when mobile-sized)
 current site 
     problems:
 
@@ -87,28 +88,35 @@ current site
             if icon can't load, no alt-text:
                 visually impaired users don't get anything, which isn't necessarily awful when its a tiny icon but stil
         volunteer page doesn't have location for shelter (footer doesn't count, be consistent)
+        "about us" reloads page when not already pointing to index
+                points to "supportive services" div instead of div container for some reason, not necessarily bad just weird, implies opportunityhouse.us and opportunityhouse.us/index don't point to the same place
 END GOAL:
     
     RECREATE FIRST, then add fancy
         all necessary pages
-         layout:
+         layout:            
             base
+                make $.php redirect to appropriate page of new site
+                fade-in for header text (https://stackoverflow.com/questions/11679567/using-css-for-fade-in-effect-on-page-load#11681331)
                 template tags for menu/soc?
                     https://djangobook.com/basic-template-tags-filters/
                     https://docs.djangoproject.com/en/2.1/howto/custom-template-tags/
                 get royalty-free page rip if possible
                         make repeat
+                        make as ::after/::before content
                 parallax in mainpicture
                 
                 Header:
                     make socmedia hug rhs
-                    when big enough logo & menu on same row, when too small menu collapses into single collapsible toggle button (which gets hidden on zoom in)
                     drop shadow from header
+                    img centers when only one in line
+                    When menu button visible menu becomes vertical      
+                            if button not visible, then menu shows regardless of checked state - Javascript?
+                            dotted line separator when vertical
                 Footer:
                     other soc media area
+                    black
             home
-            about
-                subset of home
             events
             view 
             volunteer
@@ -125,10 +133,13 @@ END GOAL:
             docs - video?
 
     throw together spreadsheet of pricing difference
+        emphasize manager-editibility
+        run speedtests to compare
     ARIA accessibility (https://www.youtube.com/watch?v=g9Qff0b-lHk)
     Apache 
         https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/modwsgi/ - get to run w django
         nginx instead?
+
     Event stuff
         (several container choices? - have some sorta logic to determine which fields to show, decided in view?)
                 figure out how to pattern non-img'd events
@@ -149,13 +160,16 @@ END GOAL:
         slugs help w SEO?
 
     TinyMCE for wsyiwyg page editor (https://www.youtube.com/watch?v=bJeTEDRvGVA&list=PL7Nf-MXzozDLSk9nLsAkosV9h3C4eBXgn&index=4)
+            able to upload/link to files?
     GraphQL (graphene) for more specific API calls?
     editable container for info under pic on mainpage (commented-out Statefarm bit )
+        Title, Subtitle, Button Text, Button Redirect
         checkbox for whether or not is shown 
-    'Page' model has things like tab title, menu title, menuorder, mainpic, footerinfo, picoverlaytitle,
+        includes 50px padding below & line
+    'Page' model has things like tab title, menu title, menuorder, mainpic, footerinfo, picoverlaytitle/subtitle,
         only webadmin can add/remove, webmanager can edit/view (until CMS)
-        "call to action"
-        somehow can add in things like hours/wfh overlay
+        "call to action" info/button action
+        somehow can add in things like hours/wfh overlay?
         
         swappable menuorder
 
@@ -207,14 +221,17 @@ END GOAL:
             overlay specific color,different color on hover
     API stuff
         tests - https://scotch.io/tutorials/build-a-rest-api-with-django-a-test-driven-approach-part-1
-        authentication
-        get better url scheme working
+        authentication - 
+            
         have specific pickups accessible to specific customers, authorize thru key sent to email?
             scheduling status/updateable & eventually push notification updates?
             editable info until manager locks-in to trip details
     Use Model Forms!!! - crispy too?
         formsets helpful for multiple repeated (sales? still good to know abt if not useful here) https://whoisnicoleharris.com/2015/01/06/implementing-django-formsets.html
-
+    Seasonal decoration
+    Admin:
+       More JS https://docs.djangoproject.com/en/2.1/ref/contrib/admin/javascript/
+       Able to generate documentation: https://docs.djangoproject.com/en/2.1/ref/contrib/admin/admindocs/
     DB backup manager (fixtures?)
     TripScheduler:
         integration to/from gdocs
@@ -235,8 +252,6 @@ END GOAL:
         wishlist
 
 DONE:
-    git-ify'd :) 
-
     Truckscheduler 
         base html/js/css skeleton
     API     
@@ -251,25 +266,32 @@ DONE:
     Base
         CSS grid skeleton for menu
             somewhat responsive
-
+        Menu button for base w rough sliding
+    Home
+        About-Us redirect working (make sure tiles don't mess it up)
     Thrift-store
         skeleton
     Sponsors
         skeleton
         variable sized grid
-    
+        whole grid clickable, alignment janky but working
+    General:
+        git-ify'd :) 
+        Media folders more specific 
+
 TODO:
-    media folders more specific 
     fix server time error
+    better grids for events
     logo changes sizes on screen change
-    json multistep form 
+    multistep form 
+    get menu button placement down/which size mediaqueries do what fine-tuned
     sponsors images/autowrap
-    socmedia footer - socmedia Model to keep
+        image centering
+    socmedia footer - socmedia Model to keep consistent/editable
             snapchat/youtube/paypal as other options for logos
-    center major sponsor images
     location model/box
         boxfn which gives a box for 
-
+    
 data structures:
     Event Data Structure:
         Title

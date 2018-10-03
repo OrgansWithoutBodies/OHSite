@@ -124,7 +124,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT='/static/'
 
 MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(os.path.dirname(BASE_DIR),"media_cdn")
+MEDIA_ROOT=os.path.join(os.path.dirname(BASE_DIR),r"media_cdn")
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,

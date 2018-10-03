@@ -42,7 +42,7 @@ class Event(models.Model):#attachable associated documents?
 	enddate		=models.DateTimeField(help_text="Must be same or after startdate")#verify that is after startdate
 
 	price		=models.SmallIntegerField(default=0)
-	img 		=models.ImageField(blank=True)
+	img 		=models.ImageField(blank=True,upload_to='eventimages/')
 	loc			=models.TextField()
 
 	eventdesc	=models.TextField(blank=True)
@@ -57,7 +57,7 @@ class Event(models.Model):#attachable associated documents?
 class Sponsor(models.Model):
 	sponsorname	=models.CharField(max_length=100)
 	url 		=models.URLField()
-	pic 		=models.ImageField(blank=True)
+	pic 		=models.ImageField(blank=True,upload_to='sponsorimages/')
 	SPONSOR_TYPES=(
 		('MJ','Major Sponsor'),
 		('SP','Sponsored by'))
@@ -74,7 +74,7 @@ class Pickup(models.Model):
 	items		=models.TextField()
 
 	specinstruct=models.TextField(blank=True)
-	imgs		=models.ImageField(blank=True)
+	imgs		=models.ImageField(blank=True,upload_to='uploadedimages/')
 
 	trip 		=models.ForeignKey('Trip',on_delete=models.SET_NULL,null=True,blank=True)
 class Trip(models.Model):
@@ -88,6 +88,15 @@ class Trip(models.Model):
 
 	triptype 	=models.CharField(max_length=3,choices=TRIPTYPE_CHOICES,default='PD')
 
+
+
+class Page(models.Model):
+	headerimg=models.ImageField(upload_to='headerimages/')#option to have all names equal/slugged
+	tabname=models.CharField(max_length=20)
+	menuname=models.CharField(max_length=10)
+	url=models.URLField()
+	headertitle=models.CharField(max_length=50)
+	headersubtitle=models.CharField(blank=True,max_length=80)
 
 
 

@@ -29,18 +29,19 @@ router.register(r'pickups',views.PickupViewSet)
 
 
 urlpatterns = [
-    path('api/',include(router.urls)),
-	path('',views.home),
-    path('truckscheduler/',views.truckscheduler,name='truckscheduler'),
-    path('admin/', admin.site.urls,name='adminpage'),
-    path('home/',views.home,name='homepage'),
+    path('',views.home,name='homepage'),
     path('donate/',views.donate,name='donate'),
     path('thrift-store/',views.thriftstore,name='thrift-store'),
     path('volunteer/',views.volunteer,name='volunteer'),
     path('wheels-for-hope/',views.wheelsforhope,name='wheels-for-hope'),
     path('contact/',views.contact,name='contact'),
     path('events/',views.events,name='events'),
+    
+
     path('api-auth/',include('rest_framework.urls',namespace='rest_framework')),
+    path('api/',include(router.urls)),
+    path('admin/', admin.site.urls,name='adminpage'),
+    path('truckscheduler/',views.truckscheduler,name='truckscheduler'),
 ]
 
 #make specific urls.py for APIs?
