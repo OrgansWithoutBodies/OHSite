@@ -92,16 +92,57 @@ class Trip(models.Model):
 
 class Page(models.Model):
 	headerimg=models.ImageField(upload_to='headerimages/')#option to have all names equal/slugged
-	tabname=models.CharField(max_length=20)
-	menuname=models.CharField(max_length=10)
-	url=models.URLField()
+	tabname=models.CharField(max_length=20,blank=True)
+	url=models.CharField(blank=True,max_length=20)
 	headertitle=models.CharField(max_length=50)
 	headersubtitle=models.CharField(blank=True,max_length=80)
 
+	callstr=models.CharField(blank=True,max_length=25)
+	callbtn=models.CharField(blank=True,max_length=25)
+	callactn=models.CharField(blank=True,max_length=10)
+	def __str__(self):
+		return self.url
+
+class Location(models.Model):
+	name=models.CharField(max_length=30)
+	address=models.CharField(max_length=50)
+	phone=models.CharField(max_length=15)
+	email=models.EmailField(blank=True)
+	icon=models.CharField(max_length=10,blank=True)
+
+	volblurb=models.TextField(max_length=1000,blank=True)
+	donblurb=models.TextField(max_length=1000,blank=True)
+	def __str__(self):
+		return self.name
+class SocialMedia(models.Model):
+	#figures out type from url
+	SOC_TYPES=( 
+		("IN","Instagram"),
+		("FB","Facebook"),
+		("TW","Twitter"),
+		("YT","YouTube"),
+		("SC","SnapChat")
+		)
+	url=models.URLField()
+	order=models.IntegerField()
+	soctype=models.CharField(max_length=2,choices=SOC_TYPES)
 
 
 
 
+
+
+class Article(models.Model):
+	url=models.URLField()
+	title=models.CharField(max_length=100,blank=True)
+	author=models.CharField(max_length=30)
+	paper=models.CharField(max_length=30)
+	date=models.DateField()
+	img=models.ImageField(blank=True)
+	blurb=models.TextField(max_length=1000)
+	
+	def __str__(self):
+		return self.author+', '+self.paper
 # class Sale(models.Model):
 
 # 	salecats 	=models.TextField(max_length=50)

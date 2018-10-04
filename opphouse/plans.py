@@ -18,6 +18,7 @@ schedule todolist
         gets from web/can be input manually
     
     dock 
+        "Close Dock Early" button
         integrate truck,web & overflow
         migrate log
         more logging
@@ -52,9 +53,15 @@ helpful resources:
     https://www.youtube.com/watch?v=-oWIyFYyNQw&list=PLEsfXFp6DpzTD1BD1aWNxS2Ep06vIkaeW&index=26 (eps 23-28 are good overview of form details)
     https://www.youtube.com/watch?v=zojnkKGRXp0 (form mixins ~8 min)
     https://www.youtube.com/watch?v=8QKOaTYvYUA (CSS-Only Collapsing Menubar w animations - for when mobile-sized)
+    http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/ (css squarecard)
+    https://demo.itsupportguides.com/ajax-upload-for-gravity-forms/multi-page-form-ajax-enabled/ (forms + AJAK)
 current site 
     problems:
-
+        shutterstock images ew
+        video "TO FIND OUT MORE INFORMAION ABOUT DONATION" should be plural - Jittery R
+        home image has transparent overlay, no other pages - maybe intentional, most likely lazy
+                NOPE, its bc they changed it to an overlay w 10%
+        most requests of special resized images return 404, implying most of javascript was just stuff they put bc "thats how we do it" w/o actually understanding
         convoluted way of scheduling pickups
         stupid expensive, largely bootstrap
         barely optimized for mobile (line wraps, horizontalgroup buttons, non-persistent menu(stylistic but still), nonclickable phone #'s,basic forms, dreamweaver rly intended for static/old webpages)
@@ -65,7 +72,8 @@ current site
         parallax gets screwy on small screens
         redundant contact, different zips means hardcoded instead of shared vars (sloppy!!)
         very late 90's early00's vibe (Dreamweaver templates pretty outdated nowadays)
-        "get in involved"
+        "get in involved" on thrift store page (even main page has different lol)
+        Donation Exclusion list has inconsistent formatting
         contact/contact-us domain confusion on runaround leads to dead pages (on roughly half of the pages the "Sign Up To Volunteer" button redirects to an old page, but not on others - hardcoded repeated headache)
             fixed as of October, changed to email button w 50/50 shot of emailing Sunny or nicholasC
         no parallax for sections w buttons (main screen/WFH)
@@ -88,12 +96,21 @@ current site
             if icon can't load, no alt-text:
                 visually impaired users don't get anything, which isn't necessarily awful when its a tiny icon but stil
         volunteer page doesn't have location for shelter (footer doesn't count, be consistent)
+
+        at some zoom levels social media overlaps edge
+        wfh has no fade-in
+        donate boxes should alternate at least
+                map pin moves arbitrarily
+                inconsistent capitalization
+        article section isnt padded on mobile-size
+                only clickable is tiny texts
         "about us" reloads page when not already pointing to index
                 points to "supportive services" div instead of div container for some reason, not necessarily bad just weird, implies opportunityhouse.us and opportunityhouse.us/index don't point to the same place
 END GOAL:
     
     RECREATE FIRST, then add fancy
         all necessary pages
+        SPRITES
          layout:            
             base
                 make $.php redirect to appropriate page of new site
@@ -131,14 +148,31 @@ END GOAL:
             Contact
                     clickable intended target to contact?
             docs - video?
-
-    throw together spreadsheet of pricing difference
-        emphasize manager-editibility
+    Article section (tries to figure out date title etc from url)
+            URL
+            Image
+            Title
+            Date
+            Author
+            Publication
+            Blurb
+    throw together spreadsheet of pricing difference (https://docs.google.com/spreadsheets/d/1wkseKZ3j3e-UH9up9c-58f7nyBXildynh7NiN8scjJ0/edit#gid=0)
+        emphasize manager-editibility & overpaying for the level we have atm
         run speedtests to compare
+        nice-looking graphsa
+        "I can make that video in one hour"
+        have rough skeletons of other easily addable features
+                Dock button transmit from android
+                Marketplace sketchup
+                CMS
+                    rough translations
     ARIA accessibility (https://www.youtube.com/watch?v=g9Qff0b-lHk)
     Apache 
         https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/modwsgi/ - get to run w django
         nginx instead?
+    Admin
+            make char lens consistent
+            auto-resize images?
 
     Event stuff
         (several container choices? - have some sorta logic to determine which fields to show, decided in view?)
@@ -169,7 +203,10 @@ END GOAL:
     'Page' model has things like tab title, menu title, menuorder, mainpic, footerinfo, picoverlaytitle/subtitle,
         only webadmin can add/remove, webmanager can edit/view (until CMS)
         "call to action" info/button action
+                "show call to action" checkbox first
+        title can be img
         somehow can add in things like hours/wfh overlay?
+        (subtitle type?)
         
         swappable menuorder
 
@@ -219,6 +256,7 @@ END GOAL:
 
     more in-depth social media integration
             overlay specific color,different color on hover
+            have inv masks?
     API stuff
         tests - https://scotch.io/tutorials/build-a-rest-api-with-django-a-test-driven-approach-part-1
         authentication - 
@@ -246,6 +284,8 @@ END GOAL:
 
     Way down the line goals:
         eventually make better video than that movie maker shit
+                make sure equal or under 10MB
+                10 slides ~5 secs each
         connect fancy lights maybe (https://www.youtube.com/watch?v=5zhReMb_Yek&pbjreload=10)
         copy other opphouses for SEO - donation bins also cool https://opphouse.org/contact-us/#warehouse
         integrate clock
@@ -269,28 +309,40 @@ DONE:
         Menu button for base w rough sliding
     Home
         About-Us redirect working (make sure tiles don't mess it up)
-    Thrift-store
-        skeleton
-    Sponsors
-        skeleton
-        variable sized grid
-        whole grid clickable, alignment janky but working
+    
+        Sponsors
+            skeleton
+            variable sized grid 
+            whole grid clickable, alignment janky but working 
     General:
         git-ify'd :) 
         Media folders more specific 
 
 TODO:
+    FIX SPONSOR BOX SIZE???
+    make sure things look ok w/o grid!!!
     fix server time error
+    contact map
     better grids for events
+    event images uploadable from url
+    gridless image card centering (absolute padding?)
+    Sponsors w/o images have nice text
+    Make menu button less janky
+    page title form shows {title}+"Opportunity House | Vacaville's Homeless Shelter"
     logo changes sizes on screen change
     multistep form 
     get menu button placement down/which size mediaqueries do what fine-tuned
-    sponsors images/autowrap
-        image centering
+    sponsors images
+        make sure cards on last row are centered
+        figure out whether limit vert or hor based on imsize
     socmedia footer - socmedia Model to keep consistent/editable
             snapchat/youtube/paypal as other options for logos
     location model/box
-        boxfn which gives a box for 
+        boxfn which gives a box for specified N
+        donateblurb
+        volunteerblurb
+        INCLUSION on every page - https://stackoverflow.com/questions/10859769/django-multiple-template-inheritance-is-this-the-right-style#10860682
+
     
 data structures:
     Event Data Structure:
@@ -298,6 +350,7 @@ data structures:
         Description (w headers etc)
         Datetime
         Location
+
         Image
         URL
     WFH Data Structure:

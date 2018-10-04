@@ -1,10 +1,44 @@
 {% extends "webapp/base.html" %}
 
 {%block title%}
+{{page.tabname}}
 {%endblock title%}
 
+{%block mainimg%}
+<img src="{{page.headerimg.url}}"/>	
+{%endblock mainimg%}
+
+
+{%block headertitle%}
+{{page.headertitle}}
+{%endblock headertitle%}
+
+{%block headersubtitle%}
+{{page.headersubtitle}}
+{%endblock headersubtitle%}
+
+{% block callstr %}
+{{page.callstr}}
+{% endblock callstr %}
+
+{% block callbtn %}
+{{page.callbtn}}
+{% endblock callbtn %}
 
 {%block pagecontent%}
+<h1>How it works</h1>
+<ol>
+	<li>Donate your car using the online form or call our donation specialists at 707-446-6246.</li>
+<li>We'll call you to arrange a convenient pickup time for your car donation.</li>
+<li>You receive a tax receipt and the community's gratitude.</li></ol>
+<i>Donating is that easy. No paperwork, no headache, zero cost.</i>
+
+
+
+
+<div class="wfh-form">
+<h2>Car Donation Made Easy</h2>
+
 <form method="POST">
 	{%csrf_token%}
 	{{form.as_p}}
@@ -14,4 +48,8 @@
 	{{dform.as_p}}
 <input type="submit" value="Submit">	
 </form>
+</div>
+<div >
+	<h1>We don't use a middleman</h1>
+<p>By keeping our process in house, we cut out the extra costs often incurred by other charities. This means a higher percentage of your donation goes to support those who need it most.</p></div>
 {%endblock pagecontent%}

@@ -1,9 +1,107 @@
 {% extends "webapp/base.html" %}
 
 {%block title%}
+{{page.tabname}}
 {%endblock title%}
+
+{%block mainimg%}
+<img src="{{page.headerimg.url}}"/>	
+{%endblock mainimg%}
+
+
+{%block headertitle%}
+{{page.headertitle}}
+{%endblock headertitle%}
+
+{%block headersubtitle%}
+{{page.headersubtitle}}
+{%endblock headersubtitle%}
+
+{% block callstr %}
+{{page.callstr}}
+{% endblock callstr %}
+
+{% block callbtn %}
+{{page.callbtn}}
+{% endblock callbtn %}
 
 
 {%block pagecontent%}
+<div class="paypal">
+	<h1>Opportunity House General Fund</h1>
+	<h3>our donations go straight to helping people in the local community.</h3>
+	<form style="margin: 0px auto; width: 150px;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                     <input type="hidden" name="cmd" value="_s-xclick">
+                      <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+                      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                      <img alt="Donate via PayPal" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+</div>
+<h2>Your donations are greatly appreciated and are tax deductible.</h2>
+
+<div class="donate-block">
+	<div class="donate-icon">
+	</div>
+	<div class="donate-title">
+		<h2>Donate items to the shelter</h2>
+	</div>
+	<div class="donate-blurb">
+		<h5>Donations of food, cleaning supplies, and toiletries are always appreciated and can be made anytime.</h5>
+	</div>
+	<div class="donate-loc">
+		267 Bennett Hill Court 
+Vacaville, CA 95688 
+(707) 447-1988
+	</div>
+</div>
+
+
+
+<div class="donate-block">
+	<div class="donate-icon">
+	</div>
+	<div class="donate-title">
+		<h2>Donate items to the Thrift Store</h2>
+	</div>
+	<div class="donate-blurb">
+		<h5>Clothing and Household Items can be delivered directly to the Opportunity House Thrift Store. Donations are accepted Monday through Saturday 9am to 4pm, and Sunday 11am to 2pm. If the weather is bad please call the store first at (707) 446-6246 to see if we are accepting donations that day. At this time we are unable to accept mattresses, hide-a-beds, and exercise equipment.</h5>
+	</div>
+	<div class="donate-loc">
+		107 Peabody Road 
+Vacaville, CA 95687 
+(707) 446-6246
+	</div>
+</div>
+
+<div class="donate-block">
+	<div class="donate-icon">
+	</div>
+	<div class="donate-title">
+		<h2>Wheels For Hope</h2>
+	</div>
+	<div class="donate-blurb">
+		<h5>Donate your car using the online form or call our donation specialists at 707-446-6246. We'll call you to arrange a convenient pickup time for your car donation. You receive a tax receipt and the community's gratitude. Donating is that easy. No paperwork, no headache, zero cost.</h5>
+	</div>
+	<div class="donate-btn">
+		<button> Get Started </button>
+	</div>
+</div>
+
+<div class="donate-block">
+	<div class="donate-icon">
+	</div>
+	<div class="donate-title">
+		<h2>Other Donations</h2>
+	</div>
+	<div class="donate-blurb">
+		<h5>Please contact Vacaville Social Services business office with regard to large gifts and endowments, and estate sale services.</h5>
+	</div>
+	<div class="donate-loc">
+		Vacaville Social Services Corp. 
+P.O. Box 6593, Vacaville, CA 95696 
+(707) 451-4874
+	</div>
+</div>
 
 {%endblock pagecontent%}

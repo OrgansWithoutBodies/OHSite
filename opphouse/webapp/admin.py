@@ -10,13 +10,15 @@ class SponsorAdmin(admin.ModelAdmin):
 	list_display=('sponsorname','sponsortype')
 	list_filter=('sponsortype',)
 
-#Model Registration
+#Model Registration - what models are accessible from admin page
 admin.site.register(Event,EventAdmin)
 admin.site.register(Donor)
 admin.site.register(Sponsor,SponsorAdmin)
 admin.site.register(Pickup)
 admin.site.register(Car)
-
+admin.site.register(Page)
+admin.site.register(Location)
+admin.site.register(Article)
 
 admin.site.register(Trip)
 

@@ -1,7 +1,29 @@
 {% extends "webapp/base.html" %}
 
 {%block title%}
+{{page.tabname}}
 {%endblock title%}
+
+{%block mainimg%}
+<img src="{{page.headerimg.url}}"/>	
+{%endblock mainimg%}
+
+
+{%block headertitle%}
+{{page.headertitle}}
+{%endblock headertitle%}
+
+{%block headersubtitle%}
+{{page.headersubtitle}}
+{%endblock headersubtitle%}
+
+{% block callstr %}
+{{page.callstr}}
+{% endblock callstr %}
+
+{% block callbtn %}
+{{page.callbtn}}
+{% endblock callbtn %}
 
 
 {%block pagecontent%}
@@ -40,7 +62,7 @@
 			
 			</div>
 			<div class='eventbutton'>
-			<button onclick='window.location.href="{{e.url}}"'>Tickets - ${{e.price}} each</button>
+			<a href="{{e.url}}"><button class="on_white">Tickets - ${{e.price}} each</button></a>
 		</div>
 	</div>
 	<p/>

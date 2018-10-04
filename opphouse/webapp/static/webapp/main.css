@@ -1,18 +1,102 @@
 /*VARIABLE DECLARATIONS*/
 :root{
 	--main-menu-color:#509241;
+	--main-menu-hover:#777777;
 	--accent-orange:#dd861c;
 	--title-green:#4dae43;
+
+	--footer-color:#000000;
+	--footer-text:#ffffff;
+
+	--bg-color:#ffffff;
+	--alt-bg-color:#f6f6f6;
 	}
 
 /*General Styling*/
+header{
+	box-shadow: 0px 10px 10px #aaaaaaff;
+	z-index: 999;
+}
+.headertitle{
+	position:relative;
+	word-wrap: break-word;
+	font-size: 5em;
+	color:#ffffff;
+	display:overlay;
+	text-shadow: 3px 3px 5px #000000ff;
+}
+.headersubtitle{
+	position:relative;
+	word-wrap: break-word;
+	font-size: 2em;
+	color:#ffffff;
+	display:overlay;
+	text-shadow: 3px 3px 5px #000000ff;
+}
+}
 body{
-	background:#ffffff;
+	background:var(--bg-color);
 }
 .block-title{
 	font-size:20px;
 	text-align: center;
 	color:var(--title-green);
+}
+
+.soc-item{
+	padding:5px;
+	
+}
+
+.soc-img{
+	background:var(--main-menu-color);
+}
+.soc-img:hover{
+	background:var(--accent-orange);
+}
+footer{
+	background:var(--footer-color);
+}
+.foot-signature{
+	color:var(--footer-text);
+}
+
+.calltoaction{
+	display: stretch;
+	padding-top: 20px;
+	padding-bottom:20px;
+	background-color:var(--accent-orange);
+	box-shadow: 10px 0px 10px #000000ff;
+}
+.involve-head{
+	color:#ffffff;
+}
+/*Buttons*/
+button.on_white{
+	padding:10px;
+	text-align: center;
+	color:#ffffff;
+	background-color:var(--accent-orange);
+	box-shadow: 5px 5px 10px #000000ff;
+	transition: background-color 250ms,box-shadow 250ms;
+}
+button.on_white:hover{
+	box-shadow: none;
+	transition: background-color 250ms,box-shadow 250ms;
+	background-color:#000000;
+}
+
+button.on_orange{
+	transition:color 250ms, background-color 250ms;
+	color:#ffffff;
+	border:2px solid white;
+	padding:10px;
+	background-color:var(--accent-orange);
+}
+button.on_orange:hover{
+background-color:#ffffff;
+color:#000000;
+transition:color 250ms, background-color 250ms
 }
 
 /*Paper*/
@@ -49,11 +133,15 @@ body{
 	display: block;
 	height:100%;
 	width:100%;
+	background-color: #ff0000;		
 }
 .menu-a{
 	text-decoration: none;
 	font-size: 15px;
 	color: var(--main-menu-color);
+}
+.menu-a:hover{
+	color:var(--main-menu-hover);
 }
 
 /*CSS trickery to make menu slide button here*/
@@ -71,11 +159,15 @@ body{
 }
 
 .nav-toggle-label{
-	height:50px;
-	width:120px;
+	width:180px;
+	height:0px;
+	padding-top:20px;
+	padding-bottom:40px;
+
 	text-align: center;
-	vertical-align: center;
-	background-color: #ff0000;
+
+	color:#ffffff;
+	background-color: var(--accent-orange);
 }
 .nav-toggle:checked~ .grid-menu{
 	transform:scale(1,1);

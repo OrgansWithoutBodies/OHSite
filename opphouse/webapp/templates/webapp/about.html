@@ -1,35 +1,50 @@
 {% extends "webapp/base.html" %}
 
 {%block title%}
-test
+{{page.tabname}}
 {%endblock title%}
+
+{%block mainimg%}
+<img src="{{page.headerimg.url}}"/>	
+{%endblock mainimg%}
+
+
+{%block headertitle%}
+{{page.headertitle}}
+{%endblock headertitle%}
+
+{% block callstr %}
+{{page.callstr}}
+{% endblock callstr %}
+
+{% block callbtn %}
+{{page.callbtn}}
+{% endblock callbtn %}
 
 
 {%block pagecontent%}
-	<h5>{{title}}</h5>
-	<a href="{% url 'events'%}"><button>Go To event</button></a>
 
 	<div id="about-us">
 		<h5>About Us!</h5>
 	</div>
-	<a href="{% url 'truckscheduler'%}"><button>Go To truck</button></a>
 	<h3 class="block-title">Major Sponsors</h3>
 	<div class="major-sponsors-grid">
 		
 		{%for m in majorsponsors%}
-			<div class="major-sponsor">
+			
 				
 					<a href="{{m.url}}" class="sponsor-a">
+						<div class="major-sponsor">
 						{%if m.pic%}
 						<img width=130em class="centerimage" src="{{m.pic.url}}" alt="{{m.sponsorname}}" >
 
 						{%else%}
 						<img class="centerimage" alt="{{m.sponsorname}}">
 						{%endif%}
-					</a>
+					</div>
+				</a>
 				
-				
-			</div>
+		
 		{%endfor%}
 	</div>
 	<p>

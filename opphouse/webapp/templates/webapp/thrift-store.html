@@ -1,7 +1,29 @@
 {% extends "webapp/base.html" %}
 
 {%block title%}
+{{page.tabname}}
 {%endblock title%}
+
+{%block mainimg%}
+<img src="{{page.headerimg.url}}"/>	
+{%endblock mainimg%}
+
+
+{%block headertitle%}
+{{page.headertitle}}
+{%endblock headertitle%}
+
+{%block headersubtitle%}
+{{page.headersubtitle}}
+{%endblock headersubtitle%}
+
+{% block callstr %}
+{{page.callstr}}
+{% endblock callstr %}
+
+{% block callbtn %}
+{{page.callbtn}}
+{% endblock callbtn %}
 
 
 
@@ -36,10 +58,10 @@ It is not a guarantee that your items will be taken at the time it is dropped of
 	<li>Sunday: 11:00am-5:00pm</li>
 </div>
 <div class="donate-hours">
-	<h5>Thrift Store Donation Hours</h5>
+	<h5>Thrift Store Donation Hours<a href="#asterisk">*</a></h5>
 	<li>Monday-Saturday: 9:00am-4:00pm</li>
 	<li>Sunday: 11:00am-2:00pm</li>
-	*In some cases the dock can and will close due to weather change and/or an over-abundance of donations; as a reminder storage is limited.
+	<div id="asterisk">*In some cases the dock can and will close due to weather change and/or an over-abundance of donations; as a reminder storage is limited.</div>
 </div>
 <div class="pickup"><h5>Donation Pickups</h5></div>
 Monday 11am-4pm ( Fairfield/Suisun OR Dixon/Winters.)
@@ -49,5 +71,31 @@ Due to extreme volume in daily pickups, our schedule is at a minimum of 2 weeks 
 
 For more information on donation delivery or pickups please contact:
 James Ward, jamesw@opportunityhouse.us , (707) 446-6246
+</div>
+
+
+<div class="articles-container">
+	{%for a in articles%}
+	<div class="article-info">
+		<div class="article-title">
+			<h1>{{a.title}}</h1>
+		</div>
+		<div class="article-subtitle">
+			<h2>By {{a.author}}, {{a.paper}} | {{a.date}}</h2>
+		</div>
+		<div class="article-blurb">
+			<h5>{{a.blurb}}</h5>
+		</div>
+		<div class="article-link">
+			<a href="{{a.url}}">Read the full article</a>
+		</div>
+	</div>
+		{%if a.img%}
+
+			<div class="article-img">
+				<img src="{{a.img.url}}"/>
+			</div>
+		{%endif%}
+	{%endfor%}
 </div>
 {%endblock pagecontent%}

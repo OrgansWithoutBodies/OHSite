@@ -1,9 +1,27 @@
 {% extends "webapp/base.html" %}
 
 {%block title%}
-Contact
+{{page.tabname}}
 {%endblock title%}
 
+{%block mainimg%}{{page.headerimg.url}}{%endblock mainimg%}
+
+
+{%block headertitle%}
+{{page.headertitle}}
+{%endblock headertitle%}
+{%block headersubtitle%}
+{{page.headersubtitle}}
+{%endblock headersubtitle%}
+
+
+{% block callstr %}
+{{page.callstr}}
+{% endblock callstr %}
+
+{% block callbtn %}
+{{page.callbtn}}
+{% endblock callbtn %}
 
 
 
