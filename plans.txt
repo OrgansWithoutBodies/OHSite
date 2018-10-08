@@ -1,0 +1,17 @@
+Web Server Organizational Document
+Current State:
+	manually bound gunicorn forwards 8000
+	gunicorn service loaded, failed on active and sub - socket not found	messy
+
+Current Problems:
+	systemctl start gunicorn returns error
+	firewall not booting right (python problem?)
+	
+
+
+TODO:
+	fix Problems
+	figure out static
+	once everything works alright enough, nuke server and try again The Right Way (tm)
+
+DONE:

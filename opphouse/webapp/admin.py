@@ -1,3 +1,4 @@
+
 from django.contrib import admin
 from .models import *
 
@@ -20,6 +21,7 @@ admin.site.register(Page)
 admin.site.register(Location)
 admin.site.register(Article)
 
+admin.site.register(Dock)
 admin.site.register(Trip)
 
 

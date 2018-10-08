@@ -21,6 +21,12 @@ class Donor(models.Model):
 	def __str__(self):#text displayed
 		return self.strname
 
+class Dock(models.Model):
+	early_closes	=models.DateTimeField()
+	reason			=models.CharField(max_length=30,blank=True)
+	
+	def __str__(self):
+		return self.early_closes.strftime('%D')+' because '+self.reason
 
 class Car(models.Model):
 	donor 		=models.ForeignKey('Donor',on_delete=models.CASCADE)
@@ -112,6 +118,8 @@ class Location(models.Model):
 
 	volblurb=models.TextField(max_length=1000,blank=True)
 	donblurb=models.TextField(max_length=1000,blank=True)
+
+	#hours=models. #have some way of setting hours easily
 	def __str__(self):
 		return self.name
 class SocialMedia(models.Model):

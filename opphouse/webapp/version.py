@@ -1,2 +1,1 @@
-"""version notes:
-"""
+__version__=='0.0.2'

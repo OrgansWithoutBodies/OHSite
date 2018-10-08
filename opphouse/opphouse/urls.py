@@ -27,6 +27,8 @@ from webapp import views
 router=routers.DefaultRouter()
 router.register(r'pickups',views.PickupViewSet)
 
+router.register(r'dock',views.DockViewSet)
+
 
 urlpatterns = [
     path('',views.home,name='homepage'),

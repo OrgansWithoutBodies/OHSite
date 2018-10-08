@@ -25,6 +25,7 @@ body{
 	height:130px;
 	width:130px;
 	margin:10px;
+	color:#ffffff;
 }
 .hover{
 	border-style:dashed;
@@ -52,10 +53,10 @@ body{
 		each div starts out empty,checks condition to be filled (currently "is first") then gets a sub-div
 
 -->
-{%for i in stops%}
+{%for i in num%}
 <div class="empty" id="{{forloop.counter}}">
-{%if forloop.counter == 1%}
-<div class="filled" draggable="true"></div>
+{%if forloop.counter <= stops|length%}
+<div class="filled" draggable="true">{{stops|dictsort:i}}</div>
 {%endif%}
 </div>
 {% endfor %}

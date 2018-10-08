@@ -1,0 +1,10 @@
+
+<div class="ribbon {{status}}">
+	{%if status == "closed"%}
+<span>Dock Is Currently: Closed {%with reason=reasontext%}due to {{reason}}{%endwith%}</span>
+{%elif status == "open"%}
+<span>Dock Is Currently: Open</span>
+{%else%} <!--status passed in to template isn't "open" or "closed", widget doesn't know how to handle. Make sure status is lowercase!!-->
+<span> something broke lol </span>
+{%endif%}
+</div>

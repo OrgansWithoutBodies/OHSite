@@ -10,6 +10,15 @@
 
 	--bg-color:#ffffff;
 	--alt-bg-color:#f6f6f6;
+
+	--ribbon-open-fg:#76c65a;
+	--ribbon-open-mg:#2b4a23;
+	--ribbon-open-bg:#5d9a48;
+	
+	--ribbon-closed-fg:#ff3300;
+	--ribbon-closed-mg:#800000;
+	--ribbon-closed-bg:#cc3300;
+	
 	}
 
 /*General Styling*/
@@ -99,7 +108,7 @@ color:#000000;
 transition:color 250ms, background-color 250ms
 }
 
-/*Paper*/
+/*Torn Paper*/
 .paperheader{
 	z-index: 2;
 	display: block;
@@ -171,4 +180,84 @@ transition:color 250ms, background-color 250ms
 }
 .nav-toggle:checked~ .grid-menu{
 	transform:scale(1,1);
+}
+
+/*Dock Ribbon*/
+.ribbon{
+	width:300px;
+	margin:50px auto;
+	padding:7px 0;
+	position:relative;
+}
+.ribbon>*{
+	display:inline-block;
+	width:100%;
+	position: relative;	
+	text-align:center;
+	font-size: 20px;
+	color:#ffffff;
+	text-shadow: 2px 2px 10px #000000cc;
+}
+		/*FOLDS*/
+		.ribbon>*::before,.ribbon>*::after,.ribbon::before,.ribbon::after{
+			content:'';
+			width:0;
+			height:0;
+			border-style:solid;
+			position:absolute;
+		}	
+		.ribbon>*::before,.ribbon>*::after{
+			border-width:8px;
+			bottom:-23px;
+		}
+		.ribbon>*::before{
+			left:0;
+		}
+		.ribbon>*::after{
+			right:0;
+		}
+
+		.ribbon::before,.ribbon::after{
+			z-index: -1;
+			border-width: 18px;
+			bottom:-16px;
+		}
+		.ribbon::before{
+			left:-20px;
+		}
+		.ribbon::after{
+			right:-20px;
+		}
+
+.open{
+	background-color: var(--ribbon-open-fg);
+}
+.open::before{
+	border-color:var(--ribbon-open-bg) var(--ribbon-open-bg) var(--ribbon-open-bg) transparent;
+}
+.open::after{
+	border-color:var(--ribbon-open-bg) transparent var(--ribbon-open-bg) var(--ribbon-open-bg);
+}
+.open>*::before{
+    border-color:var(--ribbon-open-mg) var(--ribbon-open-mg) transparent transparent;
+}
+.open>*::after{
+	border-color:var(--ribbon-open-mg) transparent transparent var(--ribbon-open-mg);
+}
+
+.closed{
+	background-color: var(--ribbon-closed-fg);
+}
+.closed::before{
+	border-color:var(--ribbon-closed-bg) var(--ribbon-closed-bg) var(--ribbon-closed-bg) transparent;
+}
+.closed::after{
+	border-color:var(--ribbon-closed-bg) transparent var(--ribbon-closed-bg) var(--ribbon-closed-bg);
+}
+
+.closed>*::before{
+    border-color:var(--ribbon-closed-mg) var(--ribbon-closed-mg) transparent transparent ;
+}
+.closed>*::after{
+	border-color:var(--ribbon-closed-mg) transparent transparent var(--ribbon-closed-mg);
 }

@@ -55,6 +55,7 @@ helpful resources:
     https://www.youtube.com/watch?v=8QKOaTYvYUA (CSS-Only Collapsing Menubar w animations - for when mobile-sized)
     http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/ (css squarecard)
     https://demo.itsupportguides.com/ajax-upload-for-gravity-forms/multi-page-form-ajax-enabled/ (forms + AJAK)
+    https://www.youtube.com/watch?v=3cRT1RmCyKg (deploy django w nginx & gunicorn)
 current site 
     problems:
         shutterstock images ew
@@ -67,7 +68,7 @@ current site
         barely optimized for mobile (line wraps, horizontalgroup buttons, non-persistent menu(stylistic but still), nonclickable phone #'s,basic forms, dreamweaver rly intended for static/old webpages)
         "thirft store"
         "our work" repurposed for sponsorships lol 
-        no https
+        no https - bad for SEO
         their own URL only links to them on main page, only page which doesn't load socmedia footer
         parallax gets screwy on small screens
         redundant contact, different zips means hardcoded instead of shared vars (sloppy!!)
@@ -140,6 +141,7 @@ END GOAL:
             donate
 
             thrift
+                    embed video, can change later
             WfH
                 multi-step form (https://stackoverflow.com/questions/5478432/making-a-django-form-class-with-a-dynamic-number-of-fields,https://www.caktusgroup.com/blog/2018/05/07/creating-dynamic-forms-django/)
                 colorful error box
@@ -156,32 +158,38 @@ END GOAL:
             Author
             Publication
             Blurb
+
+
     throw together spreadsheet of pricing difference (https://docs.google.com/spreadsheets/d/1wkseKZ3j3e-UH9up9c-58f7nyBXildynh7NiN8scjJ0/edit#gid=0)
         emphasize manager-editibility & overpaying for the level we have atm
         run speedtests to compare
+        VPS comparisons https://www.webstack.de/blog/e/cloud-hosting-provider-comparison-2017/
+            "Scaleways network is good, sadly inconsistent, but as with OVH you don't pay for any overusage. If you need to push a lot of public bandwidth, you should go with Vultr, otherwise OVH is a great fit. If you need predictable performance you should think about DigitalOcean or Linode."
         nice-looking graphsa
+        mention ~famous django users~ (Instagram, PBS, NASA)
+        Digital Ocean reliably like 1000 concurrent visiters, we'll be fine: https://www.quora.com/How-many-unique-visitors-can-DigitalOceans-10-plan-handle-per-day-on-WordPress
         "I can make that video in one hour"
+        SLACK for group messages/team communication 
+            can be separated department from department as wanted
+            (popular users: NASA)
+            lightweight phone apps
+            optional sms notification
+            free unless you plan on having more than 10,000 (searchable) messages 
+            mailchimp, dropbox, polls, etc integrations
+            integration with google drive
+                examples - bot notifies when schedule is updated
+            Bots can do whatever you want
         have rough skeletons of other easily addable features
                 Dock button transmit from android
                 Marketplace sketchup
                 CMS
                     rough translations
     ARIA accessibility (https://www.youtube.com/watch?v=g9Qff0b-lHk)
-    Apache 
-        https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/modwsgi/ - get to run w django
-        nginx instead?
+       
     Admin
             make char lens consistent
             auto-resize images?
 
-    Event stuff
-        (several container choices? - have some sorta logic to determine which fields to show, decided in view?)
-                figure out how to pattern non-img'd events
-                Photo-Only Event
-        dropdown box for fb
-        if price is 0 change $ to free
-        format event times
-        attachable documents (wsyiwyg?)
     proxy for drivers? http://benlopatin.com/using-django-proxy-models/
         other alternatives https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#proxy 
         maybe thru personal info?
@@ -200,17 +208,8 @@ END GOAL:
         Title, Subtitle, Button Text, Button Redirect
         checkbox for whether or not is shown 
         includes 50px padding below & line
-    'Page' model has things like tab title, menu title, menuorder, mainpic, footerinfo, picoverlaytitle/subtitle,
-        only webadmin can add/remove, webmanager can edit/view (until CMS)
-        "call to action" info/button action
-                "show call to action" checkbox first
-        title can be img
-        somehow can add in things like hours/wfh overlay?
-        (subtitle type?)
-        
-        swappable menuorder
-
-    CSS Grid for moving based on screensize (https://www.youtube.com/watch?v=M3qBpPw77qo)
+    
+       
     sitemap (https://www.youtube.com/watch?v=xAXMqiPSY34)
     captcha in contact/pickup
     retina (js or otherwise)
@@ -223,7 +222,6 @@ END GOAL:
             if not will be google translated (don't want to have to query it each time - saved in other file?)
                 https://cloud.google.com/translate/docs/translating-text#translate_translate_text-protocol
 
-    clickable asterisk scrolls down to page info
     Sponsors
         "WebManager"(or similar) Group can edit sponsors & events
         paypal linked to adding to sponsor in some form?
@@ -246,9 +244,7 @@ END GOAL:
             facebook app - out of date? (https://www.youtube.com/watch?v=jxDHNSW28bs&index=10&list=PL7Nf-MXzozDLSk9nLsAkosV9h3C4eBXgn)
         https://developers.facebook.com/docs/marketing-apisre
 
-    "Is Dock Open" badge
-        auto open/closed based on hours,have some way (floor app & dock app) to send closing signal outside of regular times
-            careful abt server clock - hide if thinks is before like 2010
+    
 
     map w all marked pts - maybe not since gmaps is dumb now?
         figure out details abt cloud pricing/nonprofit api discounts
@@ -260,7 +256,7 @@ END GOAL:
     API stuff
         tests - https://scotch.io/tutorials/build-a-rest-api-with-django-a-test-driven-approach-part-1
         authentication - 
-            
+        
         have specific pickups accessible to specific customers, authorize thru key sent to email?
             scheduling status/updateable & eventually push notification updates?
             editable info until manager locks-in to trip details
@@ -273,6 +269,7 @@ END GOAL:
     DB backup manager (fixtures?)
     TripScheduler:
         integration to/from gdocs
+        write custom templating to be able to index? or just use some other js language? dunno
         get pickups from db/other methods
             AJAX
         each trip gets attached to date & employee(s)
@@ -296,7 +293,7 @@ DONE:
         base html/js/css skeleton
     API     
         Accessible
-
+        
     Event  
         reads from db models
         outline of placement
@@ -317,14 +314,41 @@ DONE:
     General:
         git-ify'd :) 
         Media folders more specific 
+        Page Model mostly implemented
+    Thrift:
+        clickable asterisk scrolls down to page info
+        Dock Widget:
+            mostly done
+            auto open/closed based on hours, accessible thru API
+
+
 
 TODO:
+    Page model implementation smoother
+          'Page' model controls menu stuff
+           only webadmin can add/remove, webmanager can edit/view (until CMS)
+            only shows call to action if not blank
+            titletext can be img
+            somehow can add in things like hours/wfh overlay?
+                (subtitle type?)
+       
+    "Is Dock Open" badge
+            careful abt server clock - hide if thinks is before like 2010 or smth
+            "scheduled" different than "early"
     FIX SPONSOR BOX SIZE???
     make sure things look ok w/o grid!!!
     fix server time error
     contact map
-    better grids for events
-    event images uploadable from url
+    Events:
+         better grids for events
+            event images uploadable from url
+            (several container choices? - have some sorta logic to determine which fields to show, decided in view?)
+            figure out how to pattern non-img'd events
+            Photo-Only Event
+        dropdown box for fb
+        if price is 0 change $ to 'free'
+        format event times better
+        attachable documents (wsyiwyg?)
     gridless image card centering (absolute padding?)
     Sponsors w/o images have nice text
     Make menu button less janky
