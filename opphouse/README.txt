@@ -34,9 +34,10 @@ IF YOU'RE TAKING OVER THIS PROJECT:
 					serving with NGINX [Server responsible for taking in HTTP REQUEST, letting other processes do their thing, then return an HTTP RESPONSE - 2nd most used worldwide so lots of docs, maybe too many]
 						thru GUNICORN as gateway [translates HTTP stuff into Python - mostly shouldn't need to be changed if everything's configured right - DO has config documentation]
 							for DJANGO (PYTHON) framework project [Backend for server, framework for creating rich HTML templates & data-models]
+								using WAGTAIL CMS [Content Management System - helps to make site manager-editable]
 								saving data to SQLITE database [Saves data locally in an SQL file, doesn't need to be run on its own ]
 			GIT as version control 
-
+			
 			DigitalOcean is very well documented, go there if there's an error on the server end (can't talk to IP address at all), CENTOS is documented but somewhat technical - most sites you should be able to just copy & paste the right commands but don't do anything too messy - if you're familiar with Mac/Linux command line then you'll be alright - CENTOS not super different from Ubuntu ("yum" instead of "apt-get", other syntactic differences), nearly identical to RedHatEnterpriseLinux("RHEL 7") (but free!!) any errors guides should be identical
 				DO provides an in-browser shell command line, if you're not familiar with SSH
 				If you want, you can enable desktop mode on CENTOS to help debug - idk if DO's in-browser shell supports that but it'd probably be very very laggy
@@ -50,6 +51,10 @@ IF YOU'RE TAKING OVER THIS PROJECT:
 			If the problem is something specific about the site or a specific page, look through the DJANGO project
 				DJANGO & PYTHON (3) super well documented, any specific errors/desires are usually google-able, basic coding knowledge should be enough to figure out python syntax
 					https://www.fullstackpython.com/ has some great links & info --- VERY GOOD LEARNING/FRAMEWORK INFO
+				WAGTAIL is somewhat new - generally ok support & documentation - at time of writing only CMS which handles django 2, so far haven't rly run into problems but who knows
+						https://docs.wagtail.io/en/v2.2.2
+						https://docs.wagtail.io/en/v2.2.2/advanced_topics/third_party_tutorials.html
+						https://github.com/springload/awesome-wagtail
 			No Jquery/bootstrap/fancy javascript plugins on Django site, i didn't want that headache
 				used CSS-GRID for size-responsive styling (somewhat new), older machines get served mobile version of site (each <div> is usually its own row)
 			Server Security	

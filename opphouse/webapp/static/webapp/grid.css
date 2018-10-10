@@ -3,6 +3,7 @@
 .grid-container{
 	display:inline-grid;
 	grid-template-rows: 1fr 2fr 1fr;
+	grid-template-columns: repeat(auto-fit, auto-fit, minmax(300px,1fr));
 	grid-gap: 0px;
 }
 

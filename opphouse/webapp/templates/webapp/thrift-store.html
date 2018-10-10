@@ -1,37 +1,11 @@
 {% extends "webapp/base.html" %}
 
-{%block title%}
-{{page.tabname}}
-{%endblock title%}
-
-{%block mainimg%}
-<img src="{{page.headerimg.url}}"/>	
-{%endblock mainimg%}
-
-
-{%block headertitle%}
-{{page.headertitle}}
-{%endblock headertitle%}
-
-{%block headersubtitle%}
-{{page.headersubtitle}}
-{%endblock headersubtitle%}
-
-{% block callstr %}
-{{page.callstr}}
-{% endblock callstr %}
-
-{% block callbtn %}
-{{page.callbtn}}
-{% endblock callbtn %}
-
-
-
 
 
 
 
 {%block pagecontent%}
+{{page}}
 <div class="thrift-content">
 <div class="thrift-vid"><h5>video</h5></div>
 <div class="exclusion">
@@ -62,8 +36,8 @@ It is not a guarantee that your items will be taken at the time it is dropped of
 	<li>Monday-Saturday: 9:00am-4:00pm</li>
 	<li>Sunday: 11:00am-2:00pm</li>
 	<div id="asterisk">*In some cases the dock can and will close due to weather change and/or an over-abundance of donations; as a reminder storage is limited.</div>
-	
-{%include "webapp/dock_widget.html" with status=dockstatus reasontext=dockreason%}
+
+{%include "webapp/blocks/dock_block.html" with status=dock.status reasontext=dock.reason%}
 </div>
 <div class="pickup"><h5>Donation Pickups</h5></div>
 Monday 11am-4pm ( Fairfield/Suisun OR Dixon/Winters.)

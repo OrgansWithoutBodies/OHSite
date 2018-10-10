@@ -1,0 +1,20 @@
+<h3 class="block-title">{{block.value.sponsor_header_text}}</h3>
+	<div class="major-sponsors-grid">
+		
+		{%for m in majorsponsors%}
+			
+				
+					<a href="{{m.url}}" class="sponsor-a">
+						<div class="major-sponsor">
+						{%if m.pic%}
+						<img width=130em class="centerimage" src="{{m.pic.url}}" alt="{{m.sponsorname}}" >
+
+						{%else%}
+						<img class="centerimage" alt="{{m.sponsorname}}">
+						{%endif%}
+					</div>
+				</a>
+				
+		
+		{%endfor%}
+	</div>

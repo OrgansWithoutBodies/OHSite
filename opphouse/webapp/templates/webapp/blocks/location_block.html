@@ -1,0 +1,24 @@
+
+<div class='LocBlock'>
+	{%for Loc in Locs%}
+	<div class='LocItem'>
+			{%if Loc.Icon%}
+			<div class='LocIcon'>
+				{{Loc.Icon}}
+			</div>
+			{%endif%}
+
+			{%if Loc.Header%}
+			<div class='LocHeader'>
+				{{Loc.Header}}
+			</div>
+			{%endif%}
+
+			{%if Loc.Body%}
+			<div class='LocBody'>
+				{{Loc.Body}}
+			</div>
+			{%endif}
+	</div>
+	{%endfor%}
+</div>

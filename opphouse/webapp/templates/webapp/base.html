@@ -1,4 +1,8 @@
+
+
 {%load static%}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="{%static 'webapp/grid.css'%}">
 	<link rel="stylesheet" type="text/css" href="{%static 'webapp/main.css'%}">
 	<link rel="icon" href="{% static 'imgs/opportunity-house-logo-square-icon.png'%}">
-	<title>{%block title%}{%endblock title%} Opportunity House | Vacaville's Homeless Shelter</title>
+	<title>{{page.tabname}} Opportunity House | Vacaville's Homeless Shelter</title>
 </head>
 <body>
 
@@ -20,6 +24,8 @@
 				</a>
 			</div>
 			<div class="grid-social" id="socialcontainer">
+				<div class="soc-item">
+					<a target="_blank" href="https://www.facebook.com/opportunityhousevv/"><object class="soc-img" data= "{%static 'imgs/soc/facebook2.svg'%}" width="20" height="20" fill="#000000"><div class='fallback'/></object></a></div>
 				<div class="soc-item"><a href="https://www.facebook.com/opportunityhousevv/"><img class="soc-img" src = "{%static 'imgs/soc/fb.png'%}" width="20"></a>	</img></div>
 				<div class="soc-item"><a href="https://twitter.com/VacavilleOHouse"><img class="soc-img" src = "{%static 'imgs/soc/twitter.png'%}" width="20"></img></a></div>
 				<div class="soc-item"><a href="https://www.instagram.com/opportunitythrift/"><img class="soc-img" src = "{%static 'imgs/soc/insta.png'%}" width="20"></img></a></div>
@@ -46,41 +52,41 @@
 	</header>
 	<p>
 	<div class="mainimg">
-
-	{%block mainimg%}
-	{%endblock mainimg%}
-	<div class="headertitle">
-	<h2>{%block headertitle%}{%endblock headertitle%}</h2>
-	</div>
-	<div class="headersubtitle">
-	<p>{%block headersubtitle%}{%endblock headersubtitle%}</p>
+		<div class="imgimg">
+		{%image page.headerimg max-1000x500%}
+		</div>
+		<div class="headertitle">
+			<h2>{{page.headertitle}}</h2>
+		</div>
+		<div class="headersubtitle">
+			<p>{{page.headersubtitle}}</p>
 	
-	</div>
+		</div>
 	</div>
 	<p>
-	<div class="paperheader"><img src="{%static 'imgs/torn-paper.png'%}"></img></div>
-
+	<!--<div class="paperheader"><img src="{%static 'imgs/torn-paper.png'%}"></img></div>
+-->	
+	<div class='contentblock'>
 	{%block pagecontent%}
 	{%endblock pagecontent%}
+	</div>
 
 
-
-
+	{%if page.calltoaction%}
 	<div class="calltoaction">
 			<div class="involve-head">
-				<h5>{% block callstr %}
-				{% endblock callstr %}</h5>
+				<h5>{{page.calltoaction.callstr}}</h5>
 			</div>
 			<div class="involve-butt">
 
-				<button class="on_orange">{% block callbtn %}
-				{% endblock callbtn %}</button>
+				<button class="on_orange">{{page.calltoaction.callbtn}}</button>
 			</div>
 			{%block footinvolve%}
 
 			{%endblock footinvolve%}
 
 		</div>
+		{%endif%}
 	
 		
 		<div class="foot-contact">

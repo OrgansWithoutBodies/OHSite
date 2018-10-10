@@ -56,6 +56,11 @@ helpful resources:
     http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/ (css squarecard)
     https://demo.itsupportguides.com/ajax-upload-for-gravity-forms/multi-page-form-ajax-enabled/ (forms + AJAK)
     https://www.youtube.com/watch?v=3cRT1RmCyKg (deploy django w nginx & gunicorn)
+    https://jossingram.wordpress.com/2015/04/22/a-list-of-wagtails-streamfield-icons/ (wagtail streamfield icons for custom blocks)
+    https://www.w3schools.com/howto/howto_js_form_steps.asp (multistep)
+    https://css-tricks.com/using-svg/ (good info on using svg's w html/css)
+    https://despreneur.com/15-best-websites-to-download-free-icons/ (good list of attribution-free icon sites, make sure to check!!!)
+    https://ahackersday.com/blog/djitter-how-to-build-a-twitter-clone-using-django-2-0-part-one/
 current site 
     problems:
         shutterstock images ew
@@ -93,11 +98,12 @@ current site
         Donate-> WFH is fucked up on mobile
         if home overlay buttons go to single-column they get fucked up
         <i> tag used as shortcut for icon is rly /awful/ practice
-            <i> is technically italic, but twitter bootstrap (the free package this company is selling to you) has that as its default for icon
+            <i> is technically italic, but bootstrap (the free package this company is selling to you) has that as its default for icon
+            font-awesome stuff rly is just pretending to be text - ends up loading hundreds (thousands?) of unneccessary images just for the ~10 being used
             if icon can't load, no alt-text:
                 visually impaired users don't get anything, which isn't necessarily awful when its a tiny icon but stil
         volunteer page doesn't have location for shelter (footer doesn't count, be consistent)
-
+        map loads whole-ass html page, unneccessary & slow tho not technically ~wrong~
         at some zoom levels social media overlaps edge
         wfh has no fade-in
         donate boxes should alternate at least
@@ -112,10 +118,16 @@ END GOAL:
     RECREATE FIRST, then add fancy
         all necessary pages
         SPRITES
+                render small svg on upload page - need to learn a bit of react?
+                icons as document collection?
+                https://css-tricks.com/svg-sprites-use-better-icon-fonts/
+                https://www.creativebloq.com/features/the-complete-guide-to-svg/6
+                https://css-tricks.com/using-svg/
+                https://css-tricks.com/svg-fallbacks/
+                https://stackoverflow.com/questions/38722155/wagtail-how-do-i-populate-the-choices-in-a-choiceblock-from-a-different-model ?
          layout:            
             base
                 make $.php redirect to appropriate page of new site
-                fade-in for header text (https://stackoverflow.com/questions/11679567/using-css-for-fade-in-effect-on-page-load#11681331)
                 template tags for menu/soc?
                     https://djangobook.com/basic-template-tags-filters/
                     https://docs.djangoproject.com/en/2.1/howto/custom-template-tags/
@@ -182,8 +194,7 @@ END GOAL:
         have rough skeletons of other easily addable features
                 Dock button transmit from android
                 Marketplace sketchup
-                CMS
-                    rough translations
+               
     ARIA accessibility (https://www.youtube.com/watch?v=g9Qff0b-lHk)
        
     Admin
@@ -201,9 +212,8 @@ END GOAL:
         twitter good for SEO https://www.youtube.com/watch?v=T3GsJgxAB9Q&list=PL7Nf-MXzozDLSk9nLsAkosV9h3C4eBXgn&index=13
         slugs help w SEO?
 
-    TinyMCE for wsyiwyg page editor (https://www.youtube.com/watch?v=bJeTEDRvGVA&list=PL7Nf-MXzozDLSk9nLsAkosV9h3C4eBXgn&index=4)
-            able to upload/link to files?
     GraphQL (graphene) for more specific API calls?
+
     editable container for info under pic on mainpage (commented-out Statefarm bit )
         Title, Subtitle, Button Text, Button Redirect
         checkbox for whether or not is shown 
@@ -213,20 +223,16 @@ END GOAL:
     sitemap (https://www.youtube.com/watch?v=xAXMqiPSY34)
     captcha in contact/pickup
     retina (js or otherwise)
-    basic slide animations (jq or greensock)
+    basic slide animations (jq or greensock)?
     user-editable translations thru admin - ES, maybe ZH
-        Django-CMS includes 
+        Wagtail includes
         knows which translation to provide for other pages?
         "Translator" group connected to specific language - ISO639-1 code included
         has different ways of showing if text is already translated manually
             if not will be google translated (don't want to have to query it each time - saved in other file?)
                 https://cloud.google.com/translate/docs/translating-text#translate_translate_text-protocol
 
-    Sponsors
-        "WebManager"(or similar) Group can edit sponsors & events
-        paypal linked to adding to sponsor in some form?
-        sidescrolling mode
-        center last row?
+  
     pickup scheduling form 
         AJAX form so wont refresh - same w WFH
         sends info to android app db 
@@ -236,23 +242,6 @@ END GOAL:
         which stops are in which trips editable by truckscheduler javascript applet
         "I want to be notified again " + minute range from 0 - 60 +"mins before arrival"
 
-    active sales 
-        make selected sale type affect boxes (generic #1 #2 selected by box?)
-
-    Marketplace (https://www.youtube.com/watch?v=9Wbfk16jEOk)
-        connected to fb &/ ebay
-            facebook app - out of date? (https://www.youtube.com/watch?v=jxDHNSW28bs&index=10&list=PL7Nf-MXzozDLSk9nLsAkosV9h3C4eBXgn)
-        https://developers.facebook.com/docs/marketing-apisre
-
-    
-
-    map w all marked pts - maybe not since gmaps is dumb now?
-        figure out details abt cloud pricing/nonprofit api discounts
-        use OpenStreetMap for planning fastest route? or google credits if low volume 
-
-    more in-depth social media integration
-            overlay specific color,different color on hover
-            have inv masks?
     API stuff
         tests - https://scotch.io/tutorials/build-a-rest-api-with-django-a-test-driven-approach-part-1
         authentication - 
@@ -262,7 +251,6 @@ END GOAL:
             editable info until manager locks-in to trip details
     Use Model Forms!!! - crispy too?
         formsets helpful for multiple repeated (sales? still good to know abt if not useful here) https://whoisnicoleharris.com/2015/01/06/implementing-django-formsets.html
-    Seasonal decoration
     Admin:
        More JS https://docs.djangoproject.com/en/2.1/ref/contrib/admin/javascript/
        Able to generate documentation: https://docs.djangoproject.com/en/2.1/ref/contrib/admin/admindocs/
@@ -287,6 +275,16 @@ END GOAL:
         copy other opphouses for SEO - donation bins also cool https://opphouse.org/contact-us/#warehouse
         integrate clock
         wishlist
+        Marketplace (https://www.youtube.com/watch?v=9Wbfk16jEOk)
+            connected to fb &/ ebay
+                facebook app - out of date? (https://www.youtube.com/watch?v=jxDHNSW28bs&index=10&list=PL7Nf-MXzozDLSk9nLsAkosV9h3C4eBXgn)
+            https://developers.facebook.com/docs/marketing-apisre
+    
+        active sales 
+            make selected sale type affect boxes (generic #1 #2 selected by box?)
+        Seasonal decoration
+
+    
 
 DONE:
     Truckscheduler 
@@ -304,6 +302,8 @@ DONE:
         CSS grid skeleton for menu
             somewhat responsive
         Menu button for base w rough sliding
+        Only shows call to action if not blank
+        fade-in for header text (https://stackoverflow.com/questions/11679567/using-css-for-fade-in-effect-on-page-load#11681331)
     Home
         About-Us redirect working (make sure tiles don't mess it up)
     
@@ -315,19 +315,39 @@ DONE:
         git-ify'd :) 
         Media folders more specific 
         Page Model mostly implemented
+        Map Block w host chooser
+         
     Thrift:
         clickable asterisk scrolls down to page info
         Dock Widget:
             mostly done
             auto open/closed based on hours, accessible thru API
+    Wagtail:
 
 
 
 TODO:
+    Icon
+    more in-depth social media integration
+            overlay specific color,different color on hover
+            have inv masks?
+            populates fields based on url
+            socialmedia blocks
+
+    SASS?
+    maps:
+        make able to reference location model address
+        google maps: figure out details abt cloud pricing/nonprofit api discounts
+        https://github.com/springload/wagtailgmaps for addresses?
+    Specific Page Content doesn't seem to load saved info in editor
+    Redis for better caching
+    CMS stuff (Wagtail?)
+        https://docs.wagtail.io/en/v2.1.1/getting_started/integrating_into_django.html
+    mailing list (UGLY!), move sponsors
     Page model implementation smoother
           'Page' model controls menu stuff
            only webadmin can add/remove, webmanager can edit/view (until CMS)
-            only shows call to action if not blank
+         
             titletext can be img
             somehow can add in things like hours/wfh overlay?
                 (subtitle type?)
@@ -350,18 +370,24 @@ TODO:
         format event times better
         attachable documents (wsyiwyg?)
     gridless image card centering (absolute padding?)
-    Sponsors w/o images have nice text
+    
     Make menu button less janky
     page title form shows {title}+"Opportunity House | Vacaville's Homeless Shelter"
     logo changes sizes on screen change
     multistep form 
     get menu button placement down/which size mediaqueries do what fine-tuned
     sponsors images
+        Sponsors w/o images have nice text
         make sure cards on last row are centered
         figure out whether limit vert or hor based on imsize
+        only "WebManager"(or similar) Group can edit sponsors & events
+        paypal linked to adding to sponsor in some form?
+        sidescrolling mode
+        
     socmedia footer - socmedia Model to keep consistent/editable
             snapchat/youtube/paypal as other options for logos
     location model/box
+        "infoblock" used in streamfield
         boxfn which gives a box for specified N
         donateblurb
         volunteerblurb

@@ -1,32 +1,7 @@
 
 {% extends "webapp/base.html" %}
 
-{%block title%}
-{{page.tabname}}
-{%endblock title%}
-
-{%block mainimg%}
-<img src="{{page.headerimg.url}}"/>	
-{%endblock mainimg%}
-
-
-{%block headertitle%}
-{{page.headertitle}}
-{%endblock headertitle%}
-
-{%block headersubtitle%}
-{{page.headersubtitle}}
-{%endblock headersubtitle%}
-
-{% block callstr %}
-{{page.callstr}}
-{% endblock callstr %}
-
-{% block callbtn %}
-{{page.callbtn}}
-{% endblock callbtn %}
-
-
+{% load wagtailcore_tags %}
 {%block pagecontent%}
 <div class="paypal">
 	<h1>Opportunity House General Fund</h1>
@@ -41,6 +16,9 @@
 </div>
 <h2>Your donations are greatly appreciated and are tax deductible.</h2>
 
+{% for block in page.test%}
+{%include_block block%}
+{%endfor%}
 <div class="donate-block">
 	<div class="donate-icon">
 	</div>

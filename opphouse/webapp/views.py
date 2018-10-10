@@ -12,36 +12,9 @@ import datetime
 locs=Location.objects.all()
 #footinvolve has different string per page
 #make base info w locations
-def getpage(request):
-	path=request.get_full_path()
-	objs=Page.objects.filter(url=path)
-	if len(objs)!=0:
-		return objs[0]
-	else:
-		return None
 
 
-def dockcheck():#needs to check if within normal closing hours too
 
-	hourdict={'Sunday':[11,14],
-	'Monday':[9,16],
-	'Tuesday':[9,16],
-	'Wednesday':[9,16],
-	'Thursday':[9,16],
-	'Friday':[9,16],
-	'Saturday':[9,16]}
-	rn=datetime.datetime.now()
-	if (int(rn.strftime('%H'))>=hourdict[rn.strftime('%A')][0] and int(rn.strftime('%H'))<=hourdict[rn.strftime('%A')][1]):#If within open times
-		#check if closed for other reasons
-		print('closing time')
-		dockdb=Dock.objects.last() #make sure ordering stays consistent
-		if dockdb.early_closes.day==rn.day:#checks if blank
-
-			return dockdb.reason 
-		else:
-			return False #returns "is open" - confusing 
-	else:
-		return "scheduled"
 
 
 # Create your views here.
@@ -49,7 +22,6 @@ def base(request):
 	return render(request,"")
 def home(request):
 	#needs to include sponsors, major sponsors
-	print(dockcheck())
 	context={
 		'page':getpage(request),
 		'sponsors':Sponsor.objects.filter(sponsortype='SP'),
@@ -93,19 +65,11 @@ def donate(request):
 def thriftstore(request):
 	path=request.get_full_path()
 	#excluded items?
-	x=dockcheck()
-	if x!=False:
-		reason=x
-		dockstatus='closed'
-	else:
-		reason=""
-		dockstatus='open'
+	
 	context={'page':getpage(request),
-	'dockstatus':dockstatus,
-	'dockreason':reason,
+	'dock':dockcheck(),
 	'articles':Article.objects.all(),
-		'locations':locs
-
+	'locations':locs
 	}
 	return render(request,"webapp/thrift-store.html",context)
 

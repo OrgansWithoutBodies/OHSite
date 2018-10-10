@@ -17,7 +17,7 @@ admin.site.register(Donor)
 admin.site.register(Sponsor,SponsorAdmin)
 admin.site.register(Pickup)
 admin.site.register(Car)
-admin.site.register(Page)
+admin.site.register(WebPage)
 admin.site.register(Location)
 admin.site.register(Article)
 

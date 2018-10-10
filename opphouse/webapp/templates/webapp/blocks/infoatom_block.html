@@ -1,0 +1,24 @@
+
+{%if atom.Icon%}
+<div class='atomIcon'>
+	{{infoatom.Icon}}
+</div>
+{%endif%}
+
+{%if atom.Header%}
+<div class='atomHeader'>
+	{{atom.Header}}
+</div>
+{%endif%}
+
+{%if atom.Body%}
+<div class='atomBody'>
+	{{atom.Body}}
+</div>
+{%endif}
+
+{%if atom.Button%}
+<div class='atomButton'>
+	<a href="{{atom.Action}}">{{atom.Button}}</a>
+</div>
+{%endif}

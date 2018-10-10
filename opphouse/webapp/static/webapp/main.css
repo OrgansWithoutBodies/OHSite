@@ -27,20 +27,28 @@ header{
 	z-index: 999;
 }
 .headertitle{
-	position:relative;
+	position:absolute;
+	top:200px;
 	word-wrap: break-word;
 	font-size: 5em;
 	color:#ffffff;
 	display:overlay;
 	text-shadow: 3px 3px 5px #000000ff;
+	animation-name: fadeonload;
+	animation-duration: 2s;
+	animation-timing-function: ease-in;
 }
 .headersubtitle{
-	position:relative;
+	top:400px;
+	position:absolute;
 	word-wrap: break-word;
 	font-size: 2em;
 	color:#ffffff;
 	display:overlay;
 	text-shadow: 3px 3px 5px #000000ff;
+	animation-name: fadeonload;
+	animation-duration: 2s;
+	animation-timing-function: ease-in;
 }
 }
 body{
@@ -58,10 +66,10 @@ body{
 }
 
 .soc-img{
-	background:var(--main-menu-color);
+	fill:var(--main-menu-color);
 }
 .soc-img:hover{
-	background:var(--accent-orange);
+	fill:var(--accent-orange);
 }
 footer{
 	background:var(--footer-color);
@@ -79,6 +87,15 @@ footer{
 }
 .involve-head{
 	color:#ffffff;
+}
+.grid-logo{
+	height:auto;
+	max-width:100%;
+}
+.imgimg{
+	position:relative;
+	width:100%;
+
 }
 /*Buttons*/
 button.on_white{
@@ -109,10 +126,14 @@ transition:color 250ms, background-color 250ms
 }
 
 /*Torn Paper*/
-.paperheader{
-	z-index: 2;
-	display: block;
-	height:100px;
+.contentblock::before{
+	content:"";
+	height:148px;
+	background-image:url('../imgs/torn-paper.png'); /*viable to path changing?*/
+	width:100%;
+	display:block;
+}
+.mainimg{
 }
 
 /*Sponsor Grid Styling*/
@@ -153,6 +174,14 @@ transition:color 250ms, background-color 250ms
 	color:var(--main-menu-hover);
 }
 
+@keyframes fadeonload{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity:1;
+	}
+}
 /*CSS trickery to make menu slide button here*/
 .grid-menu{
 	transform: scale(1,0);
