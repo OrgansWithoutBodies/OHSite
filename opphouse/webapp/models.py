@@ -315,7 +315,13 @@ class Icon(models.Model):
 # 	saleend		=models.DateTimeField()
 
 ###DJANGO MODELS - NON SNIPPETS### (used largely for utility & forms)
-class Pickup(models.Model):
+class Stop(models.Model):#incoming
+	submitted=models.DateTimeField(auto_now_add=True)
+	preferreddate=models.TextField()
+	items=models.CharField()
+	donor=models.ForeignKey('Donor',on_delete=models.SET_NULL,null=True,blank=False)
+
+class Pickup(models.Model):#outgoing
 	donor 		=models.ForeignKey('Donor',on_delete=models.CASCADE)#if donor is deleted, all pickups for donor are deleted as well
 	
 	submitdate 	=models.DateTimeField(auto_now_add=True)
@@ -335,7 +341,6 @@ class Trip(models.Model):
 		('DMP','Dump Run'))
 
 	triptype 	=models.CharField(max_length=3,choices=TRIPTYPE_CHOICES,default='PD')
-
 
 
 class WebPage(models.Model):

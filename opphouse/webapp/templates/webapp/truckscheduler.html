@@ -48,15 +48,20 @@ body{
 
 <!--HTML-->
 {%block content%}
+{{stops|json_script:"stop-data"}}
 <!--
 	constructs divs thru recursive list, defined by arguments are passed in from view
 		each div starts out empty,checks condition to be filled (currently "is first") then gets a sub-div
 
 -->
 {%for i in num%}
-<div class="empty" id="{{forloop.counter}}">
+<div class="empty" id="{{i}}">
 {%if forloop.counter <= stops|length%}
-<div class="filled" draggable="true">{{stops|dictsort:i}}</div>
+<div class="filled" draggable="true" id="{{i}}">
+	<p class="Name"></p>
+	<p class="Address"></p>
+
+</div>
 {%endif%}
 </div>
 {% endfor %}
@@ -70,12 +75,18 @@ body{
 
 <!--JAVASCRIPT - for some reason doesn't like to be added to extrahead-->
 <script type="text/javascript">
-	const fill=document.querySelector('.filled');
+	var stops = JSON.parse(document.getElementById('stop-data').textContent);
+	
+	const fills=document.querySelectorAll('.filled');
 	const empties=document.querySelectorAll('.empty');
 
+	for(const fill of fills){
+		fill.childNodes[0].textContent=stops[fill.id];
+		
 
-	fill.addEventListener('dragstart',dragStart);
-	fill.addEventListener('dragend',dragEnd);
+	}
+	fills.addEventListener('dragstart',dragStart);
+	fills.addEventListener('dragend',dragEnd);
 
 	for(const empty of empties){
 		empty.addEventListener('dragover',dragOver);
@@ -100,7 +111,7 @@ body{
 	}
 	function  dragDrop(){
 		this.className='empty';
-		this.append(fill);
+		this.append(fills);
 	}
 	function  dragEnter(e){
 		e.preventDefault();

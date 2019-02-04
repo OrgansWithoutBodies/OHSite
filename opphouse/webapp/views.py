@@ -8,6 +8,7 @@ from .serializers import *
 from .forms import *
 
 import datetime
+import json
 #render_to_response can include  context_instance=RequestContext(request) for session tracking i think?
 locs=Location.objects.all()
 #footinvolve has different string per page
@@ -98,12 +99,13 @@ def volunteer(request):
 	return render(request,"webapp/volunteer.html",context)
 
 def truckscheduler(request):
-	stops={0:'testing',1:'tested',2:'testocracy'}
+	stops={0:'test',1:'testerson',2:"tst"}
 	maxpertrip=6
 	pertrip=3
 	trips=1
+	print('test')
 	context={'stops':stops,
-	'num':['']*5,
+	'num':range(maxpertrip*trips),
 	'page':getpage(request),
 		'locations':locs
 	}#janky
@@ -119,3 +121,8 @@ class DockViewSet(viewsets.ModelViewSet):
 class PickupViewSet(viewsets.ModelViewSet):
 	queryset=Pickup.objects.all()
 	serializer_class = PickupSerializer
+
+
+class StopsViewSet(viewsets.ModelViewSet):
+	queryset=Stops.objects.all()
+	serializer_class = StopSerializer

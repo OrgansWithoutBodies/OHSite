@@ -13,3 +13,9 @@ class DockSerializer(serializers.ModelSerializer):
 		fields='__all__'
 		depth=2 #unpacks associated fields :)
 		#read_only_fields=(,)
+class StopSerializer(serializers.ModelSerializer):
+	class Meta:
+		model=Stop
+		fields='__all__'
+		depth=2 #unpacks associated fields :)
+		#read_only_fields=(,)
